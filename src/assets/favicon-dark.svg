@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.5 6V2.5C13.5 1.94772 13.0523 1.5 12.5 1.5L1.5 1.5C0.947716 1.5 0.5 1.94772 0.5 2.5L0.5 12.5C0.5 13.0523 0.947715 13.5 1.5 13.5L12.5 13.5C13.0523 13.5 13.5 13.0523 13.5 12.5V9M14.4307 5.5H9.5C8.39543 5.5 7.5 6.39543 7.5 7.5C7.5 8.60457 8.39543 9.5 9.5 9.5H14.4307C14.469 9.5 14.5 9.46897 14.5 9.43069V5.56931C14.5 5.53103 14.469 5.5 14.4307 5.5Z" stroke="#000000"/>
-</svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="64px" height="64px" viewBox="-1.5 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <title>wallet</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-257.000000, -774.000000)" fill="#ffffff"> <path d="M285,793 L280,793 C279.448,793 279,793.448 279,794 L279,798 C279,798.553 279.448,799 280,799 L285,799 L285,804 C285,804.553 284.552,805 284,805 L260,805 C259.448,805 259,804.553 259,804 L259,785 L284,785 C284.552,785 285,785.447 285,786 L285,793 L285,793 Z M285,796 L285,797 L281,797 L281,796 L281,795 L285,795 L285,796 L285,796 Z M283,777 L283,783 L263.5,783 L283,777 L283,777 Z M285,783 L285,776 C285,775.447 284.764,775.141 284.25,774.938 C283.854,774.781 283.469,774.875 283,775 L257,783 L257,805 C257,806.104 257.896,807 259,807 L285,807 C286.104,807 287,806.104 287,805 L287,785 C287,783.896 286.104,783 285,783 L285,783 Z" id="wallet" sketch:type="MSShapeGroup"> </path> </g> </g> </g>
+</svg>
