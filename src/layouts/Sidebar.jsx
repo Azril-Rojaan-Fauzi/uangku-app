@@ -18,7 +18,7 @@ const Sidebar = forwardRef(({ collapsed }, ref) => {
     >
       <div className="flex gap-x-3 p-3">
         <img src={logoLight} alt="Logo" className="h-6 w-6 dark:hidden" />
-        <img src={logoDark} alt="Logo" className="h-6 w-6 dark:block" />
+        <img src={logoDark} alt="Logo" className="hidden h-6 w-6 dark:block" />
         {!collapsed && (
           <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">
             Uangku
