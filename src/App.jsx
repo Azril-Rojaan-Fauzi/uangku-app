@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "./contexts/themeContext";
+import { ThemeProvider } from "./contexts/ThemeProvider";
 import Layout from "./routes/Layout";
 import DashboardPage from "./routes/dashboard/DashboardPage";
 
