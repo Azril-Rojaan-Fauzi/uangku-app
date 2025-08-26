@@ -1,5 +1,6 @@
 import { ChevronsLeft, Moon, Sun } from "lucide-react";
 import { useTheme } from "../hooks/theme/useTheme";
+import BalanceDisplay from "./BalanceDisplay";
 
 const Header = ({ collapsed, setCollapsed }) => {
   const { theme, setTheme } = useTheme();
@@ -12,13 +13,7 @@ const Header = ({ collapsed, setCollapsed }) => {
         >
           <ChevronsLeft className={collapsed && "rotate-180"} />
         </button>
-        <div className="dompet">
-          <p className="text-slate-500 dark:text-slate-300">Rp.</p>
-          <p className="text-base text-slate-700 dark:text-slate-50">
-            {/* Angka untuk saldo */}
-            2000000
-          </p>
-        </div>
+        <BalanceDisplay />
       </div>
       <div className="flex items-center gap-x-3">
         <button

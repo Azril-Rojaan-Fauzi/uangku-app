@@ -35,7 +35,7 @@
     @apply flex h-10 flex-shrink-0 items-center justify-center gap-x-2 rounded-lg p-2 text-slate-400 transition-colors hover:bg-blue-50 hover:text-slate-500 dark:hover:bg-blue-950 dark:hover:text-slate-300;
   }
 
-  .dompet {
+  .saldo {
     @apply flex h-10 flex-shrink-0 items-center gap-x-2 rounded-lg border border-slate-300 px-3 text-base transition-colors text-shadow-slate-900 md:flex md:w-auto lg:w-50 dark:border-slate-700 dark:text-slate-50;
   }
   /* Bagian Sidebar End */
@@ -58,4 +58,16 @@
   }
 
   /* Bagian Card dashboard Start*/
+}
+
+.recharts-default-tooltip {
+  @apply !rounded-lg !border !border-slate-300 !bg-white transition-colors dark:!border-slate-700 dark:!bg-slate-900;
+}
+
+.recharts-tooltip-label {
+  @apply text-base font-medium text-slate-900 dark:text-slate-50;
+}
+
+.recharts-tooltip-item {
+  @apply text-base font-medium !text-blue-500 dark:!text-blue-600;
 }

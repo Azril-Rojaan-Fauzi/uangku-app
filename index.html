@@ -2,16 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>
-      (function () {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else if (theme === "light") {
-          document.documentElement.classList.remove("dark");
-        }
-      })();
-    </script>
 
     <link
       rel="shortcut icon"
@@ -27,6 +17,16 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uangku</title>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else if (theme === "light") {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
