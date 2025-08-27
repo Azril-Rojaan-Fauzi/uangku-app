@@ -1,50 +1,50 @@
 export const overviewData = [
   {
-    name: "Jan",
+    month: "Jan",
     total: 1500000,
   },
   {
-    name: "Feb",
+    month: "Feb",
     total: 2000000,
   },
   {
-    name: "Mar",
+    month: "Mar",
     total: 1000000,
   },
   {
-    name: "Apr",
+    month: "Apr",
     total: 5000000,
   },
   {
-    name: "May",
+    month: "May",
     total: 2000000,
   },
   {
-    name: "Jun",
+    month: "Jun",
     total: 5900000,
   },
   {
-    name: "Jul",
+    month: "Jul",
     total: 2000000,
   },
   {
-    name: "Aug",
+    month: "Aug",
     total: 5500000,
   },
   {
-    name: "Sep",
+    month: "Sep",
     total: 2000000,
   },
   {
-    name: "Oct",
+    month: "Oct",
     total: 4000000,
   },
   {
-    name: "Nov",
+    month: "Nov",
     total: 1500000,
   },
   {
-    name: "Dec",
+    month: "Dec",
     total: 2500000,
   },
 ];

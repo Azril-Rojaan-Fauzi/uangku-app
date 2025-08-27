@@ -1,5 +1,5 @@
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { cn } from "../../utils/cn";
+import { cn } from "../../../utils/cn";
 
 const CardInfo = ({
   icon,
