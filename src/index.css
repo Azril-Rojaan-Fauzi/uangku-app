@@ -58,6 +58,28 @@
   }
 
   /* Bagian Card dashboard Start*/
+
+  /* Bagian table Start */
+  .table {
+    @apply h-full w-full text-slate-900 dark:text-slate-50;
+  }
+
+  .table-header {
+    @apply sticky top-0 bg-slate-200 dark:bg-slate-800;
+  }
+
+  .table-row {
+    @apply border-b border-slate-300 transition-colors last:border-none dark:border-slate-700;
+  }
+
+  .table-head {
+    @apply h-12 px-4 text-start;
+  }
+
+  .table-cell {
+    @apply w-fit p-4 font-medium whitespace-nowrap;
+  }
+  /* Bagian table End */
 }
 
 .recharts-default-tooltip {

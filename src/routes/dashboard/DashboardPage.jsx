@@ -1,6 +1,7 @@
 import CardDisplay from "./components/CardDisplay";
 import ExpenseGraph from "./components/ExpenseGraph";
 import ExpensePieChart from "./components/ExpensePieChart";
+import HistoryTable from "./components/HistoryTable";
 
 const DashboardPage = () => {
   return (
@@ -11,6 +12,7 @@ const DashboardPage = () => {
         <ExpenseGraph />
         <ExpensePieChart />
       </div>
+      <HistoryTable />
     </div>
   );
 };
