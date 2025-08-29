@@ -15,7 +15,7 @@ const ExpensePieChart = () => {
   return (
     <div className="card col-span-1 md:col-span-2 lg:col-span-3">
       <div className="card-header">
-        <p className="card-title">Ringkasa Pengeluaran</p>
+        <p className="card-title">Ringkasan Pengeluaran</p>
       </div>
 
       <div className="card-body p-0">

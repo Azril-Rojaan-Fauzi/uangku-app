@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeProvider";
 import Layout from "./routes/Layout";
-import DashboardPage from "./routes/dashboard/DashboardPage";
+import DashboardPage from "./routes/DashboardPage";
+import IncomePage from "./routes/IncomePage";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,7 +16,7 @@ function App() {
         },
         {
           path: "pemasukan",
-          element: <h1 className="title">Pemasukan</h1>,
+          element: <IncomePage />,
         },
         {
           path: "pengeluaran",

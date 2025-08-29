@@ -12,7 +12,7 @@ import { useTheme } from "../../../hooks/theme/useTheme";
 const ExpenseGraph = () => {
   const { theme } = useTheme();
   return (
-    <div className="card col-span-1 md:col-span-2 lg:col-span-4">
+    <div className="card col-span-1 md:col-span-2 lg:col-span-7">
       <div className="card-header">
         <div className="card-title">Pengeluaran Perbulan</div>
       </div>
