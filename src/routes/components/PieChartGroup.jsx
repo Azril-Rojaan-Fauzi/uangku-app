@@ -6,31 +6,31 @@ import {
   Tooltip,
   PieChart,
 } from "recharts";
-import {
-  dataColors,
-  expensePieChartData,
-} from "../../../constants/pieChartData";
 
-const ExpensePieChart = () => {
+const PieChartGroup = ({
+  pieChartData,
+  pieChartValue,
+  pieChartCategories,
+  pieChartColors,
+}) => {
   return (
-    <div className="card col-span-1 md:col-span-2 lg:col-span-3">
+    <div className="card order-1 col-span-1 md:order-1 md:col-span-2 lg:order-2 lg:col-span-3">
       <div className="card-header">
-        <p className="card-title">Ringkasan Pengeluaran</p>
+        <p className="card-title">Ringkasan</p>
       </div>
 
       <div className="card-body p-0">
         <ResponsiveContainer width="100%" height={300}>
-          {expensePieChartData.reduce((acc, cur) => acc + cur.value, 0) ===
-          0 ? (
+          {pieChartData.reduce((acc, cur) => acc + cur.value, 0) === 0 ? (
             <p className="flex items-center justify-center text-base font-medium text-blue-500 transition-colors dark:text-blue-600">
               Tidak ada data pengeluaran untuk ditampilkan
             </p>
           ) : (
             <PieChart width={500} height={200}>
               <Pie
-                data={expensePieChartData}
-                dataKey="value"
-                nameKey="categories"
+                data={pieChartData}
+                dataKey={pieChartValue}
+                nameKey={pieChartCategories}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
@@ -38,17 +38,17 @@ const ExpensePieChart = () => {
                 fill="#82ca9d"
                 label={false}
               >
-                {expensePieChartData.map((entry, index) => (
+                {pieChartData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={dataColors[entry.categories]} // warna sesuai kategori
+                    fill={pieChartColors[entry.categories]} // warna sesuai kategori
                   />
                 ))}
               </Pie>
               <Tooltip
                 cursor={false}
                 formatter={(value, categories) => {
-                  const total = expensePieChartData.reduce(
+                  const total = pieChartData.reduce(
                     (acc, cur) => acc + cur.value,
                     0,
                   );
@@ -68,4 +68,4 @@ const ExpensePieChart = () => {
   );
 };
 
-export default ExpensePieChart;
+export default PieChartGroup;

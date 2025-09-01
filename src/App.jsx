@@ -3,6 +3,7 @@ import { ThemeProvider } from "./contexts/ThemeProvider";
 import Layout from "./routes/Layout";
 import DashboardPage from "./routes/DashboardPage";
 import IncomePage from "./routes/IncomePage";
+import ExpensePage from "./routes/ExpensePage";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +21,7 @@ function App() {
         },
         {
           path: "pengeluaran",
-          element: <h1 className="title">Pengeluaran</h1>,
+          element: <ExpensePage />,
         },
       ],
     },

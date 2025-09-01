@@ -7,11 +7,23 @@ export const expensePieChartData = [
   { categories: "Lainnya", value: 50000 },
 ];
 
-export const dataColors = {
+export const incomePieChartData = [
+  { categories: "Gaji", value: 3000000 },
+  { categories: "Uang Saku", value: 1000000 },
+  { categories: "Lainnya", value: 0 },
+];
+
+export const expenseDataColors = {
   Makan: "#FF6B6B",
   Transportasi: "#4D96FF",
   Kos: "#6BCB77",
   Hiburan: "#A66DD4",
   Belanja: "#FFD93D",
+  Lainnya: "#9CA3AF",
+};
+
+export const incomeDataColors = {
+  Gaji: "#22C55E",
+  "Uang Saku": "#3B82F6",
   Lainnya: "#9CA3AF",
 };
