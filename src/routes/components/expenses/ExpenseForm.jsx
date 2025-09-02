@@ -1,11 +1,11 @@
 import React from "react";
-import { incomePieChartData } from "../../../constants/pieChartData";
+import { expensePieChartData } from "../../../constants/pieChartData";
 
-const IncomeForm = () => {
+const ExpenseForm = () => {
   return (
     <div className="card order-2 col-span-1 md:order-2 md:col-span-2 lg:order-1 lg:col-span-4">
       <div className="card-header">
-        <div className="card-title">Form Pemasukan</div>
+        <div className="card-title">Form Pengeluaran</div>
       </div>
       <div className="card-body overflow-hidden px-2 py-0">
         <form className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4">
@@ -21,7 +21,7 @@ const IncomeForm = () => {
               id=""
               className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             >
-              {incomePieChartData.map(({ categories, value }) => (
+              {expensePieChartData.map(({ categories, value }) => (
                 <option
                   value={categories}
                   key={value}
@@ -43,7 +43,7 @@ const IncomeForm = () => {
             <input
               type="text"
               className="input-group"
-              placeholder="Dari Mamah"
+              placeholder="Beli Padang"
             />
           </label>
 
@@ -61,4 +61,4 @@ const IncomeForm = () => {
   );
 };
 
-export default IncomeForm;
+export default ExpenseForm;
