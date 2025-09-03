@@ -1,7 +1,6 @@
-import React from "react";
 import { monthHistory } from "../../../constants/monthHistoryData";
 
-const HistoryTable = () => {
+const MonthHistoryTable = () => {
   return (
     <div className="card">
       <div className="card-header">
@@ -37,4 +36,4 @@ const HistoryTable = () => {
   );
 };
 
-export default HistoryTable;
+export default MonthHistoryTable;

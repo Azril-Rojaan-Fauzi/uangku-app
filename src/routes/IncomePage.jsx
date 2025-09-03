@@ -3,6 +3,7 @@ import {
   incomePieChartData,
 } from "../constants/pieChartData";
 import IncomeForm from "./components/income/IncomeForm";
+import IncomeHistoryTable from "./components/income/IncomeHistoryTable";
 import PieChartGroup from "./components/PieChartGroup";
 
 const IncomePage = () => {
@@ -18,6 +19,7 @@ const IncomePage = () => {
           pieChartColors={incomeDataColors}
         />
       </div>
+      <IncomeHistoryTable />
     </div>
   );
 };

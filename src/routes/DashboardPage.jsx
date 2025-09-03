@@ -1,6 +1,6 @@
 import CardDisplay from "./components/dashboard/CardDisplay";
 import ExpenseGraph from "./components/dashboard/ExpenseGraph";
-import HistoryTable from "./components/dashboard/HistoryTable";
+import MonthHistoryTable from "./components/dashboard/MonthHistoryTable";
 
 const DashboardPage = () => {
   return (
@@ -10,7 +10,7 @@ const DashboardPage = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-7">
         <ExpenseGraph />
       </div>
-      <HistoryTable />
+      <MonthHistoryTable />
     </div>
   );
 };

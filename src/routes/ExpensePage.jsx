@@ -3,6 +3,7 @@ import {
   expensePieChartData,
 } from "../constants/pieChartData";
 import ExpenseForm from "./components/expenses/ExpenseForm";
+import ExpenseHistoryTable from "./components/expenses/ExpenseHistoryTable";
 import PieChartGroup from "./components/PieChartGroup";
 
 const ExpensePage = () => {
@@ -18,6 +19,7 @@ const ExpensePage = () => {
           pieChartColors={expenseDataColors}
         />
       </div>
+      <ExpenseHistoryTable />
     </div>
   );
 };

@@ -77,7 +77,7 @@
   }
 
   .table-cell {
-    @apply w-fit p-4 font-medium whitespace-nowrap;
+    @apply w-fit p-4 font-medium break-words whitespace-normal;
   }
   /* Bagian table End */
 

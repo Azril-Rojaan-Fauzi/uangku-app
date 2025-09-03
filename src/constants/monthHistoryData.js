@@ -84,3 +84,51 @@ export const monthHistory = [
     balance: 2000000,
   },
 ];
+
+export const incomeHistoryData = [
+  {
+    number: 1,
+    date: "25-08-2025",
+    categories: "Gaji",
+    nominal: 2000000,
+    note: "Gaji bulan ini",
+  },
+  {
+    number: 2,
+    date: "26-08-2025",
+    categories: "Uang Saku",
+    nominal: 1000000,
+    note: "Dari mamah",
+  },
+  {
+    number: 3,
+    date: "27-08-2025",
+    categories: "Lainnya",
+    nominal: 500000,
+    note: "Nemu dijalan",
+  },
+];
+
+export const expenseHistoryData = [
+  {
+    number: 1,
+    date: "25-08-2025",
+    categories: "Makan",
+    nominal: 20000,
+    note: "Beli naspad ceban 2 ",
+  },
+  {
+    number: 2,
+    date: "26-08-2025",
+    categories: "Transportasi",
+    nominal: 10000,
+    note: "Gojek ke kampus",
+  },
+  {
+    number: 3,
+    date: "27-08-2025",
+    categories: "Hiburan",
+    nominal: 100000,
+    note: "Beli game",
+  },
+];
