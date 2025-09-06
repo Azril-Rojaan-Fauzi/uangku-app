@@ -7,7 +7,7 @@ export const navbarLinks = [
       {
         label: "Dashboard",
         icon: Home,
-        path: "/",
+        path: "/dashboard",
       },
     ],
   },

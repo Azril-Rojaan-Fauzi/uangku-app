@@ -4,6 +4,7 @@ import logoDark from "../assets/favicon-dark.svg";
 import logoLight from "../assets/favicon-light.svg";
 import { navbarLinks } from "../constants";
 import { NavLink } from "react-router-dom";
+import LogoutButton from "../authentication/LogoutButton";
 
 const Sidebar = forwardRef(({ collapsed }, ref) => {
   // props collapsed dikirim dari Layout.jsx
@@ -50,6 +51,7 @@ const Sidebar = forwardRef(({ collapsed }, ref) => {
             ))}
           </nav>
         ))}
+        <LogoutButton />
       </div>
     </aside>
   );
