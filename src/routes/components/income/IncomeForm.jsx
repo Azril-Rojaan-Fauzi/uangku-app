@@ -48,7 +48,7 @@ const IncomeForm = () => {
           </label>
 
           <div className="col-span-1 flex justify-between md:col-span-4 xl:mt-10 xl:px-1">
-            <button className="w-fit cursor-pointer rounded-md bg-slate-300 px-5 py-1 text-slate-700 transition-colors hover:bg-gray-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">
+            <button className="w-fit cursor-pointer rounded-md bg-slate-300 px-5 py-1 text-slate-700 transition-colors hover:opacity-80 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">
               Batal
             </button>
             <button className="w-fit cursor-pointer rounded-md bg-green-600 px-5 py-1 text-white hover:bg-green-700">

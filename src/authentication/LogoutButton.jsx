@@ -35,7 +35,7 @@ const LogoutButton = ({ collapsed }) => {
       {showModal && (
         <div
           onClick={() => setShowModal(false)}
-          className="fixed inset-0 flex items-center justify-center bg-black/50"
+          className="back fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all"
         >
           <div
             onClick={(e) => e.stopPropagation()}

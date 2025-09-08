@@ -1,6 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import googleLogo from "../assets/google-g.svg";
 
 const LoginButton = () => {
   const navigate = useNavigate();
@@ -16,12 +17,13 @@ const LoginButton = () => {
   };
 
   return (
-    <button
+    <div
       onClick={signInWithGoogle}
-      className="mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+      className="mt-6 flex w-full cursor-pointer items-center justify-center gap-3 rounded-full bg-slate-200 px-3 py-2 text-white hover:bg-slate-300"
     >
-      Sign In With Google
-    </button>
+      <img src={googleLogo} alt="" className="h-5 w-5" />
+      <p className="text-sm text-slate-900">Login with Google</p>
+    </div>
   );
 };
 
