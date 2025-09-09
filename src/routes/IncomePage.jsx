@@ -1,12 +1,14 @@
+import useFetch from "../hooks/api/useFetchHistory";
 import {
   incomeDataColors,
   incomePieChartData,
 } from "../constants/pieChartData";
 import IncomeForm from "./components/income/IncomeForm";
-import IncomeHistoryTable from "./components/income/IncomeHistoryTable";
 import PieChartGroup from "./components/PieChartGroup";
+import TransactionTable from "./components/TransactionTable";
 
 const IncomePage = () => {
+  const { data: transactions } = useFetch("transactions");
   return (
     <div className="flex flex-col gap-y-4">
       <h1 className="title">Pemasukan</h1>
@@ -19,7 +21,7 @@ const IncomePage = () => {
           pieChartColors={incomeDataColors}
         />
       </div>
-      <IncomeHistoryTable />
+      <TransactionTable data={transactions} title="Pemasukan" type="income" />
     </div>
   );
 };

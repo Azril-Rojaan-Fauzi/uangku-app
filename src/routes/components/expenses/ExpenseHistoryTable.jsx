@@ -1,11 +1,12 @@
 import { PencilLine, Trash } from "lucide-react";
-import { expenseHistoryData } from "../../../constants/monthHistoryData";
+import useFetch from "../../../hooks/api/useFetchHistory";
 
 const ExpenseHistoryTable = () => {
+  const { data: expenseHistory } = useFetch("transactions");
   return (
     <div className="card">
       <div className="card-header">
-        <p className="card-title">Rekap Bulanan</p>
+        <p className="card-title">Riwayat Transaksi</p>
       </div>
       <div className="card-body p-0">
         <div className="relative h-[500px] w-full flex-shrink-0 overflow-auto rounded-none [scrollbar-widht:thin]">
@@ -21,25 +22,33 @@ const ExpenseHistoryTable = () => {
               </tr>
             </thead>
             <tbody className="table-body">
-              {expenseHistoryData.map((history) => (
-                <tr key={history.number} className="table-row">
-                  <td className="table-cell">{history.number}</td>
-                  <td className="table-cell">{history.date}</td>
-                  <td className="table-cell">{history.categories}</td>
-                  <td className="table-cell">{history.nominal}</td>
-                  <td className="table-cell">{history.note}</td>
-                  <td className="table-cell">
-                    <div className="flex items-center gap-x-4">
-                      <button className="cursor-pointer text-blue-500 dark:text-blue-600">
-                        <PencilLine size={20} />
-                      </button>
-                      <button className="cursor-pointer text-red-500">
-                        <Trash size={20} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {expenseHistory
+                .filter((history) => history.type === "expense")
+                .map((history, index) => (
+                  <tr key={history.id} className="table-row">
+                    <td className="table-cell">{index + 1}</td>
+                    <td className="table-cell">
+                      {history.date.toDate().toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </td>
+                    <td className="table-cell">{history.category}</td>
+                    <td className="table-cell">{history.amount}</td>
+                    <td className="table-cell">{history.note}</td>
+                    <td className="table-cell">
+                      <div className="flex items-center gap-x-4">
+                        <button className="cursor-pointer text-blue-500 dark:text-blue-600">
+                          <PencilLine size={20} />
+                        </button>
+                        <button className="cursor-pointer text-red-500">
+                          <Trash size={20} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

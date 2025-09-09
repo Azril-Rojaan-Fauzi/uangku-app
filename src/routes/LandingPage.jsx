@@ -15,7 +15,7 @@ export default function LandingPage() {
             <h2 className="title text-center font-bold text-slate-900 dark:text-slate-900">
               UangKu
             </h2>
-            <p className="mt-2 text-center text-2xl text-slate-500">
+            <p className="mt-2 text-center text-2xl font-light text-slate-500">
               Kelola keuanganmu di UangKu 😋
             </p>
             <LoginButton />

@@ -1,12 +1,14 @@
+import useFetch from "../hooks/api/useFetchHistory";
 import {
   expenseDataColors,
   expensePieChartData,
 } from "../constants/pieChartData";
 import ExpenseForm from "./components/expenses/ExpenseForm";
-import ExpenseHistoryTable from "./components/expenses/ExpenseHistoryTable";
 import PieChartGroup from "./components/PieChartGroup";
+import TransactionTable from "./components/TransactionTable";
 
 const ExpensePage = () => {
+  const { data: transactions } = useFetch("transactions");
   return (
     <div className="flex flex-col gap-y-4">
       <h1 className="title">Pengeluaran</h1>
@@ -19,7 +21,11 @@ const ExpensePage = () => {
           pieChartColors={expenseDataColors}
         />
       </div>
-      <ExpenseHistoryTable />
+      <TransactionTable
+        data={transactions}
+        title="Pengeluaran"
+        type="expense"
+      />
     </div>
   );
 };

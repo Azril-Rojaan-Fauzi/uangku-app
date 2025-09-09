@@ -11,7 +11,7 @@ const ExpenseForm = () => {
         <form className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4">
           <label className="input-card">
             Nominal
-            <input type="text" className="input-group" placeholder="100000" />
+            <input type="number" className="input-group" placeholder="100000" />
           </label>
 
           <label className="input-card">
