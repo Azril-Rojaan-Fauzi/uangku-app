@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
-export default function useFetch(collectionName) {
+const useFetchTransaction = (collectionName) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -28,4 +28,6 @@ export default function useFetch(collectionName) {
   }, [collectionName]);
 
   return { data, error };
-}
+};
+
+export default useFetchTransaction;
