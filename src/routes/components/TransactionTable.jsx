@@ -26,11 +26,12 @@ export default function TransactionTable({ data, title, type }) {
                 <tr key={item.id} className="table-row">
                   <td className="table-cell">{index + 1}</td>
                   <td className="table-cell">
-                    {item.date.toDate().toLocaleDateString("id-ID", {
+                    {/* {item.date.toDate().toLocaleDateString("id-ID", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
-                    })}
+                    })} */}
+                    {item.date}
                   </td>
                   <td className="table-cell">{item.category}</td>
                   <td className="table-cell">{item.amount}</td>

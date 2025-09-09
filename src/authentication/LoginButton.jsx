@@ -8,6 +8,13 @@ const LoginButton = () => {
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
+      const authInfo = {
+        userId: result.user.uid,
+        name: result.user.displayName,
+        profilePhoto: result.user.photoURL,
+        isAuth: true,
+      };
+      localStorage.setItem("auth", JSON.stringify(authInfo));
       if (result.user) {
         navigate("/dashboard");
       }

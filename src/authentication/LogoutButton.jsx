@@ -10,6 +10,7 @@ const LogoutButton = ({ collapsed }) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      localStorage.removeItem("auth");
     } catch (error) {
       console.log(error);
     }

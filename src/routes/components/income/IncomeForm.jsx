@@ -1,14 +1,29 @@
-import React from "react";
 import { incomePieChartData } from "../../../constants/pieChartData";
+import useAddTransaction from "../../../hooks/api/useAddTransaction";
 
 const IncomeForm = () => {
+  const { addTransaction } = useAddTransaction();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTransaction({
+      note: "Dari Mamah",
+      amount: 500000,
+      type: "income",
+      category: "Uang Saku",
+      date: "9/9/2025",
+    });
+  };
   return (
     <div className="card order-2 col-span-1 md:order-2 md:col-span-2 lg:order-1 lg:col-span-4">
       <div className="card-header">
         <div className="card-title">Form Pemasukan</div>
       </div>
       <div className="card-body overflow-hidden px-2 py-0">
-        <form className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4"
+        >
           <label className="input-card">
             Nominal
             <input type="number" className="input-group" placeholder="100000" />
@@ -48,10 +63,16 @@ const IncomeForm = () => {
           </label>
 
           <div className="col-span-1 flex justify-between md:col-span-4 xl:mt-10 xl:px-1">
-            <button className="w-fit cursor-pointer rounded-md bg-slate-300 px-5 py-1 text-slate-700 transition-colors hover:opacity-80 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">
+            <button
+              type="button"
+              className="w-fit cursor-pointer rounded-md bg-slate-300 px-5 py-1 text-slate-700 transition-colors hover:opacity-80 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+            >
               Batal
             </button>
-            <button className="w-fit cursor-pointer rounded-md bg-green-600 px-5 py-1 text-white hover:bg-green-700">
+            <button
+              type="submit"
+              className="w-fit cursor-pointer rounded-md bg-green-600 px-5 py-1 text-white hover:bg-green-700"
+            >
               Simpan
             </button>
           </div>
