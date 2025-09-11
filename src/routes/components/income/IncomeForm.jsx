@@ -1,18 +1,27 @@
+import { useForm } from "react-hook-form";
 import useAddTransaction from "../../../hooks/api/useAddTransaction";
 
 const IncomeForm = () => {
   const { addTransaction } = useAddTransaction();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const handleIncomeSubmit = (data) => {
     addTransaction({
-      note: "Dari Mamah",
-      amount: 500000,
+      note: data.note,
+      amount: Number(data.amount),
       type: "income",
-      category: "Uang Saku",
-      date: "9/9/2025",
+      category: data.category,
+      date: data.date,
     });
+    reset();
   };
+
   return (
     <div className="card order-2 col-span-1 md:order-2 md:col-span-2 lg:order-1 lg:col-span-4">
       <div className="card-header">
@@ -20,19 +29,30 @@ const IncomeForm = () => {
       </div>
       <div className="card-body overflow-hidden px-2 py-0">
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(handleIncomeSubmit)}
           className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4"
         >
+          {/* amount */}
           <label className="input-card">
             Nominal (Rp)
-            <input type="number" className="input-group" placeholder="100000" />
+            <input
+              type="number"
+              {...register("amount", { required: "Nominal wajib diisi" })}
+              className="input-group"
+              placeholder="100.000"
+            />
+            {errors.amount && (
+              <span className="text-sm text-red-500">
+                {errors.amount.message}
+              </span>
+            )}
           </label>
 
+          {/* category */}
           <label className="input-card">
             Kategori
             <select
-              name=""
-              id=""
+              {...register("category", { required: "Kategori wajib dipilih" })}
               className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             >
               <option className="option-group" value="">
@@ -48,17 +68,34 @@ const IncomeForm = () => {
                 Lainnya
               </option>
             </select>
+            {errors.amount && (
+              <span className="text-sm text-red-500">
+                {errors.category.message}
+              </span>
+            )}
           </label>
 
+          {/* date */}
           <label className="input-card">
             Tanggal
-            <input type="date" className="input-group" placeholder="100000" />
+            <input
+              type="date"
+              {...register("date", { required: "Tanggal wajib di isi" })}
+              className="input-group"
+            />
+            {errors.amount && (
+              <span className="text-sm text-red-500">
+                {errors.date.message}
+              </span>
+            )}
           </label>
 
+          {/* note */}
           <label className="input-card">
             Catatan
             <input
               type="text"
+              {...register("note")}
               className="input-group"
               placeholder="Dari Mamah"
             />
@@ -68,6 +105,7 @@ const IncomeForm = () => {
             <button
               type="button"
               className="w-fit cursor-pointer rounded-md bg-slate-300 px-5 py-1 text-slate-700 transition-colors hover:opacity-80 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+              onClick={() => reset()}
             >
               Batal
             </button>

@@ -36,7 +36,7 @@
   }
 
   .saldo {
-    @apply flex h-10 flex-shrink-0 items-center gap-x-2 rounded-lg border border-slate-300 px-3 text-base transition-colors text-shadow-slate-900 md:flex md:w-auto lg:w-50 dark:border-slate-700 dark:text-slate-50;
+    @apply flex h-10 flex-shrink-0 items-center gap-x-2 rounded-lg border border-slate-300 px-4 text-base transition-colors text-shadow-slate-900 md:flex md:w-fit lg:w-fit dark:border-slate-700 dark:text-slate-50;
   }
   /* Bagian Sidebar End */
 

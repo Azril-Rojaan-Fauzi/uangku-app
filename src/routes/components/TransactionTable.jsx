@@ -1,4 +1,5 @@
 import { PencilLine, Trash } from "lucide-react";
+import formatNumber from "../../hooks/formatNumber";
 
 export default function TransactionTable({ data, title, type }) {
   const filteredData = data.filter((item) => item.type === type);
@@ -16,7 +17,7 @@ export default function TransactionTable({ data, title, type }) {
                 <th className="table-head">No</th>
                 <th className="table-head">Tanggal</th>
                 <th className="table-head">Kategori</th>
-                <th className="table-head">Nominal</th>
+                <th className="table-head">Nominal (Rp)</th>
                 <th className="table-head w-1/4">Catatan</th>
                 <th className="table-head">Aksi</th>
               </tr>
@@ -34,7 +35,7 @@ export default function TransactionTable({ data, title, type }) {
                     {item.date}
                   </td>
                   <td className="table-cell">{item.category}</td>
-                  <td className="table-cell">{item.amount}</td>
+                  <td className="table-cell">{formatNumber(item.amount)}</td>
                   <td className="table-cell">{item.note}</td>
                   <td className="table-cell">
                     <div className="flex items-center gap-x-4">
