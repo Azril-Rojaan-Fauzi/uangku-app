@@ -1,6 +1,3 @@
-import React from "react";
-import { expensePieChartData } from "../../../constants/pieChartData";
-
 const ExpenseForm = () => {
   return (
     <div className="card order-2 col-span-1 md:order-2 md:col-span-2 lg:order-1 lg:col-span-4">
@@ -10,7 +7,7 @@ const ExpenseForm = () => {
       <div className="card-body overflow-hidden px-2 py-0">
         <form className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4">
           <label className="input-card">
-            Nominal
+            Nominal (Rp)
             <input type="number" className="input-group" placeholder="100000" />
           </label>
 
@@ -21,15 +18,27 @@ const ExpenseForm = () => {
               id=""
               className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             >
-              {expensePieChartData.map(({ categories, value }) => (
-                <option
-                  value={categories}
-                  key={value}
-                  className="dark:bg-slate-900 dark:text-slate-50"
-                >
-                  {categories}
-                </option>
-              ))}
+              <option className="option-group" value="">
+                -- Pilih --
+              </option>
+              <option className="option-group" value="Makan">
+                Makan
+              </option>
+              <option className="option-group" value="Transportasi">
+                Transportasi
+              </option>
+              <option className="option-group" value="Kos">
+                Kos
+              </option>
+              <option className="option-group" value="Hiburan">
+                Hiburan
+              </option>
+              <option className="option-group" value="Belanja">
+                Belanja
+              </option>
+              <option className="option-group" value="Lainnya">
+                Lainnya
+              </option>
             </select>
           </label>
 

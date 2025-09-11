@@ -1,4 +1,3 @@
-import { incomePieChartData } from "../../../constants/pieChartData";
 import useAddTransaction from "../../../hooks/api/useAddTransaction";
 
 const IncomeForm = () => {
@@ -25,7 +24,7 @@ const IncomeForm = () => {
           className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4"
         >
           <label className="input-card">
-            Nominal
+            Nominal (Rp)
             <input type="number" className="input-group" placeholder="100000" />
           </label>
 
@@ -36,15 +35,18 @@ const IncomeForm = () => {
               id=""
               className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             >
-              {incomePieChartData.map(({ categories, value }) => (
-                <option
-                  value={categories}
-                  key={value}
-                  className="dark:bg-slate-900 dark:text-slate-50"
-                >
-                  {categories}
-                </option>
-              ))}
+              <option className="option-group" value="">
+                -- Pilih --
+              </option>
+              <option className="option-group" value="Gaji">
+                Gaji
+              </option>
+              <option className="option-group" value="Uang Saku">
+                Uang Saku
+              </option>
+              <option className="option-group" value="Lainnya">
+                Lainnya
+              </option>
             </select>
           </label>
 
