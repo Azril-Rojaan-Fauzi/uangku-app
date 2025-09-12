@@ -1,4 +1,5 @@
 import { TrendingUp, TrendingDown } from "lucide-react";
+import formatNumber from "../../../utils/formatNumber";
 import { cn } from "../../../utils/cn";
 
 const CardInfo = ({
@@ -25,7 +26,7 @@ const CardInfo = ({
       </div>
       <div className="card-body bg-slate-100 transition-colors dark:bg-slate-950">
         <p className="text-3xl font-bold transition-colors text-shadow-slate-900 dark:text-slate-50">
-          {value}
+          {formatNumber(value)}
         </p>
         {showTrend && (
           <span

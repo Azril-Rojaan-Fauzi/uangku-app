@@ -8,7 +8,7 @@ import PieChartGroup from "./components/PieChartGroup";
 import TransactionTable from "./components/TransactionTable";
 
 const ExpensePage = () => {
-  const { data: transactions } = useFetchTransaction("transactions");
+  const { data: transactions = [] } = useFetchTransaction("transactions");
   return (
     <div className="flex flex-col gap-y-4">
       <h1 className="title">Pengeluaran</h1>

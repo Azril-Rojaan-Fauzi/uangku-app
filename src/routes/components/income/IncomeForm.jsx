@@ -39,7 +39,7 @@ const IncomeForm = () => {
               type="number"
               {...register("amount", { required: "Nominal wajib diisi" })}
               className="input-group"
-              placeholder="100.000"
+              placeholder="Masukkan Nominal"
             />
             {errors.amount && (
               <span className="text-sm text-red-500">
@@ -97,7 +97,7 @@ const IncomeForm = () => {
               type="text"
               {...register("note")}
               className="input-group"
-              placeholder="Dari Mamah"
+              placeholder="Masukkan Catatan"
             />
           </label>
 

@@ -1,5 +1,5 @@
 import { PencilLine, Trash } from "lucide-react";
-import formatNumber from "../../hooks/formatNumber";
+import formatNumber from "../../utils/formatNumber";
 
 export default function TransactionTable({ data, title, type }) {
   const filteredData = data.filter((item) => item.type === type);

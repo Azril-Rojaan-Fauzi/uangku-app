@@ -38,7 +38,7 @@ const ExpenseForm = () => {
             <input
               type="number"
               className="input-group"
-              placeholder="100.000"
+              placeholder="Masukkan Nominal"
               {...register("amount", { required: "Nominal wajib diisi" })}
             />
             {errors.amount && (
@@ -107,7 +107,7 @@ const ExpenseForm = () => {
               type="text"
               {...register("note")}
               className="input-group"
-              placeholder="Beli Padang"
+              placeholder="Masukkan Catatan"
             />
           </label>
 
