@@ -1,7 +1,7 @@
 import useFetchTransaction from "../api/useFetchTransaction";
 
 export default function useFilter() {
-  const { data: transactions = [] } = useFetchTransaction("transactions");
+  const { transactions = [] } = useFetchTransaction("transactions");
 
   // filter
   const incomeFilter = transactions.filter((item) => item.type === "income");

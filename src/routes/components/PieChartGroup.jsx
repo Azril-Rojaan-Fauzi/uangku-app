@@ -8,6 +8,7 @@ import {
 } from "recharts";
 
 const PieChartGroup = ({
+  title,
   pieChartData,
   pieChartValue,
   pieChartCategories,
@@ -16,14 +17,14 @@ const PieChartGroup = ({
   return (
     <div className="card order-1 col-span-1 md:order-1 md:col-span-2 lg:order-2 lg:col-span-3">
       <div className="card-header">
-        <p className="card-title">Ringkasan</p>
+        <p className="card-title">Ringkasan {title}</p>
       </div>
 
       <div className="card-body p-0">
         <ResponsiveContainer width="100%" height={300}>
           {pieChartData.reduce((acc, cur) => acc + cur.amount, 0) === 0 ? (
             <p className="flex items-center justify-center text-base font-medium text-blue-500 transition-colors dark:text-blue-600">
-              Tidak ada data ringkasan untuk ditampilkan
+              Buat {title} terlebih dahulu
             </p>
           ) : (
             <PieChart width={500} height={200}>

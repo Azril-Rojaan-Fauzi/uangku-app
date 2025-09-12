@@ -77,7 +77,7 @@ const ExpenseForm = () => {
                 Lainnya
               </option>
             </select>
-            {errors.amount && (
+            {errors.category && (
               <span className="text-sm text-red-500">
                 {errors.category.message}
               </span>
@@ -93,7 +93,7 @@ const ExpenseForm = () => {
               className="input-group"
               placeholder="100000"
             />
-            {errors.amount && (
+            {errors.date && (
               <span className="text-sm text-red-500">
                 {errors.date.message}
               </span>
@@ -108,6 +108,7 @@ const ExpenseForm = () => {
               {...register("note")}
               className="input-group"
               placeholder="Masukkan Catatan"
+              autoComplete="off"
             />
           </label>
 

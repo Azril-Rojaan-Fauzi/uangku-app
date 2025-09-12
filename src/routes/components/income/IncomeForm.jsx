@@ -68,7 +68,7 @@ const IncomeForm = () => {
                 Lainnya
               </option>
             </select>
-            {errors.amount && (
+            {errors.category && (
               <span className="text-sm text-red-500">
                 {errors.category.message}
               </span>
@@ -83,7 +83,7 @@ const IncomeForm = () => {
               {...register("date", { required: "Tanggal wajib di isi" })}
               className="input-group"
             />
-            {errors.amount && (
+            {errors.date && (
               <span className="text-sm text-red-500">
                 {errors.date.message}
               </span>
@@ -98,6 +98,7 @@ const IncomeForm = () => {
               {...register("note")}
               className="input-group"
               placeholder="Masukkan Catatan"
+              autoComplete="off"
             />
           </label>
 

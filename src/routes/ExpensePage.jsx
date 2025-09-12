@@ -7,7 +7,7 @@ import TransactionTable from "./components/TransactionTable";
 import useFilter from "../hooks/finance/useFilter";
 
 const ExpensePage = () => {
-  const { data: transactions } = useFetchTransaction("transactions");
+  const { transactions } = useFetchTransaction("transactions");
   const { expensePieChartData } = useFilter();
 
   return (
@@ -16,6 +16,7 @@ const ExpensePage = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-7">
         <ExpenseForm />
         <PieChartGroup
+          title="pengeluaran"
           pieChartData={expensePieChartData}
           pieChartCategories="category"
           pieChartValue="amount"

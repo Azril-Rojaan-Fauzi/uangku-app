@@ -1,35 +1,50 @@
 import { useState, useEffect } from "react";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
 import { db } from "../../config/firebase";
+import useGetUserInfo from "./useGetUserInfo";
 
 const useFetchTransaction = (collectionName) => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [transactions, setTransactions] = useState([]);
+
+  const collectionRef = collection(db, collectionName);
+  const { userId } = useGetUserInfo();
+
+  const getTransactions = async () => {
+    let unsubscribe;
+    try {
+      const queryTransactions = query(
+        collectionRef,
+        where("userId", "==", userId),
+        orderBy("createdAt", "desc"),
+      );
+
+      unsubscribe = onSnapshot(queryTransactions, (snapshot) => {
+        let docs = [];
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          const id = doc.id;
+
+          docs.push({ ...data, id });
+        });
+        setTransactions(docs);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    return () => unsubscribe();
+  };
 
   useEffect(() => {
-    const collectionRef = collection(db, collectionName);
+    getTransactions();
+  }, []);
 
-    const q = query(collectionRef, orderBy("createdAt", "desc"));
-
-    const unsubscribe = onSnapshot(
-      q,
-      (snapshot) => {
-        const formattedData = snapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setData(formattedData);
-      },
-      (err) => {
-        console.error("Error fetching data:", err);
-        setError(err);
-      },
-    );
-
-    return () => unsubscribe();
-  }, [collectionName]);
-
-  return { data, error };
+  return { transactions };
 };
 
 export default useFetchTransaction;
