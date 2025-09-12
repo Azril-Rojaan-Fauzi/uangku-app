@@ -1,9 +1,9 @@
 import { Banknote, BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
 import CardInfo from "./CardInfo";
-import useBalance from "../../../hooks/finance/useBalance";
+import useFilter from "../../../hooks/finance/useFilter";
 
 const CardDisplay = () => {
-  const { incomeAmount, expenseAmount, balance } = useBalance();
+  const { incomeAmount, expenseAmount, balance } = useFilter();
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {/* Card Pemasukan Start */}

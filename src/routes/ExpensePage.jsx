@@ -1,14 +1,15 @@
-import {
-  expenseDataColors,
-  expensePieChartData,
-} from "../constants/pieChartData";
+import { expenseDataColors } from "../constants/pieChartData";
 import useFetchTransaction from "../hooks/api/useFetchTransaction";
 import ExpenseForm from "./components/expenses/ExpenseForm";
 import PieChartGroup from "./components/PieChartGroup";
 import TransactionTable from "./components/TransactionTable";
 
+import useFilter from "../hooks/finance/useFilter";
+
 const ExpensePage = () => {
-  const { data: transactions = [] } = useFetchTransaction("transactions");
+  const { data: transactions } = useFetchTransaction("transactions");
+  const { expensePieChartData } = useFilter();
+
   return (
     <div className="flex flex-col gap-y-4">
       <h1 className="title">Pengeluaran</h1>
@@ -16,8 +17,8 @@ const ExpensePage = () => {
         <ExpenseForm />
         <PieChartGroup
           pieChartData={expensePieChartData}
-          pieChartCategories="categories"
-          pieChartValue="value"
+          pieChartCategories="category"
+          pieChartValue="amount"
           pieChartColors={expenseDataColors}
         />
       </div>

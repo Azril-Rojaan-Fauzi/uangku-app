@@ -21,9 +21,9 @@ const PieChartGroup = ({
 
       <div className="card-body p-0">
         <ResponsiveContainer width="100%" height={300}>
-          {pieChartData.reduce((acc, cur) => acc + cur.value, 0) === 0 ? (
+          {pieChartData.reduce((acc, cur) => acc + cur.amount, 0) === 0 ? (
             <p className="flex items-center justify-center text-base font-medium text-blue-500 transition-colors dark:text-blue-600">
-              Tidak ada data pengeluaran untuk ditampilkan
+              Tidak ada data ringkasan untuk ditampilkan
             </p>
           ) : (
             <PieChart width={500} height={200}>
@@ -41,20 +41,20 @@ const PieChartGroup = ({
                 {pieChartData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={pieChartColors[entry.categories]} // warna sesuai kategori
+                    fill={pieChartColors[entry.category]} // warna sesuai kategori
                   />
                 ))}
               </Pie>
               <Tooltip
                 cursor={false}
-                formatter={(value, categories) => {
+                formatter={(amount, categories) => {
                   const total = pieChartData.reduce(
-                    (acc, cur) => acc + cur.value,
+                    (acc, cur) => acc + cur.amount,
                     0,
                   );
-                  const percent = ((value / total) * 100).toFixed(1);
+                  const percent = ((amount / total) * 100).toFixed(1);
                   return [
-                    `Rp ${value.toLocaleString("id-ID")} (${percent}%)`,
+                    `Rp ${amount.toLocaleString("id-ID")} (${percent}%)`,
                     categories,
                   ];
                 }}

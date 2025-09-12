@@ -1,8 +1,8 @@
-import useBalance from "../hooks/finance/useBalance";
+import useFilter from "../hooks/finance/useFilter";
 import formatNumber from "../utils/formatNumber";
 
 const BalanceDisplay = () => {
-  const { balance } = useBalance();
+  const { balance } = useFilter();
 
   return (
     <div className="saldo">
