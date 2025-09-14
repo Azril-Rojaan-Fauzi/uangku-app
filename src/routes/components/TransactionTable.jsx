@@ -1,8 +1,10 @@
 import { PencilLine, Trash } from "lucide-react";
 import formatNumber from "../../utils/formatNumber";
+import useDeleteTransaction from "../../hooks/api/useDeleteTransaction";
 
 export default function TransactionTable({ data, title, type }) {
   const filteredData = data.filter((item) => item.type === type);
+  const { deleteTransaction } = useDeleteTransaction();
 
   return (
     <div className="card">
@@ -43,7 +45,10 @@ export default function TransactionTable({ data, title, type }) {
                         <PencilLine size={20} />
                       </button>
                       <button className="cursor-pointer text-red-500">
-                        <Trash size={20} />
+                        <Trash
+                          size={20}
+                          onClick={() => deleteTransaction(item.id)}
+                        />
                       </button>
                     </div>
                   </td>

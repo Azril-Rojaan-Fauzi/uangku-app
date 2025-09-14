@@ -22,12 +22,6 @@ export default function LandingPage() {
           </div>
         </div>
       </main>
-
-      <footer className="flex min-h-16 border-t-2 border-blue-500/20 p-4">
-        <p className="w-full text-center">
-          &copy; 2025 UangKu. All rights reserved.
-        </p>
-      </footer>
     </section>
   );
 }
