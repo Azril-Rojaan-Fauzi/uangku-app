@@ -24,7 +24,7 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
     },
   });
 
-  const onSubmit = async (data) => {
+  const onUpdate = async (data) => {
     await updateTransaction(
       item.id,
       data.note,
@@ -86,7 +86,7 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
           <button
             type="button"
             className="cursor-pointer text-green-500"
-            onClick={handleSubmit(onSubmit)}
+            onClick={handleSubmit(onUpdate)}
           >
             <Check size={20} />
           </button>
