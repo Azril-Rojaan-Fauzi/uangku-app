@@ -6,10 +6,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { overviewData } from "../../../constants/overviewData";
+// import { overviewData } from "../../../constants/overviewData";
 import { useTheme } from "../../../hooks/theme/useTheme";
+import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
 
 const ExpenseGraph = () => {
+  const { monthlyArray } = useMonthlyTransactions();
+
   const { theme } = useTheme();
   return (
     <div className="card col-span-1 md:col-span-2 lg:col-span-7">
@@ -19,7 +22,7 @@ const ExpenseGraph = () => {
       <div className="card-body overflow-hidden p-0">
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart
-            data={overviewData}
+            data={monthlyArray.expense}
             margin={{ top: 10, bottom: 0, right: 0, left: 0 }}
           >
             <defs>

@@ -16,7 +16,7 @@ const LogoutButton = ({ collapsed }) => {
     }
   };
   return (
-    <>
+    <div className="[scrollbar-width: thin] flex w-full flex-col gap-y-4 overflow-x-hidden overflow-y-auto">
       <nav className={cn("sidebar-group", collapsed && "md:items-center")}>
         <p className={cn("sidebar-group-title", collapsed && "md:w-[45px]")}>
           Akun
@@ -72,7 +72,7 @@ const LogoutButton = ({ collapsed }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
