@@ -1,20 +1,14 @@
-// export const expensePieChartData = [
-//   { categories: "Makan", value: 500000 },
-//   { categories: "Transportasi", value: 200000 },
-//   { categories: "Kos", value: 1500000 },
-//   { categories: "Hiburan", value: 100000 },
-//   { categories: "Belanja", value: 300000 },
-//   { categories: "Lainnya", value: 50000 },
-// ];
-
-// export const incomePieChartData = [
-//   { categories: "Gaji", value: 3000000 },
-//   { categories: "Uang Saku", value: 1000000 },
-//   { categories: "Lainnya", value: 0 },
-// ];
-
+export const incomeCategories = ["Gaji", "Uang Saku", "Lainnya"];
+export const expenseCategories = [
+  "Makan",
+  "Transportasi",
+  "Hiburan",
+  "Kos",
+  "Belanja",
+  "Lainnya",
+];
 export const expenseDataColors = {
-  Makan: "#FF6B6B",
+  Makan: "#4D96FF",
   Transportasi: "#4D96FF",
   Kos: "#6BCB77",
   Hiburan: "#A66DD4",

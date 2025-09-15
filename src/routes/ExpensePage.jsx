@@ -5,10 +5,13 @@ import PieChartGroup from "./components/PieChartGroup";
 import TransactionTable from "./components/TransactionTable";
 
 import useFilter from "../hooks/finance/useFilter";
+import { groupByCategory } from "../utils/groupByCategory";
 
 const ExpensePage = () => {
   const { transactions } = useFetchTransaction("transactions");
   const { expensePieChartData } = useFilter();
+
+  const groupedExpenseData = groupByCategory(expensePieChartData);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -17,7 +20,7 @@ const ExpensePage = () => {
         <ExpenseForm />
         <PieChartGroup
           title="pengeluaran"
-          pieChartData={expensePieChartData}
+          pieChartData={groupedExpenseData}
           pieChartCategories="category"
           pieChartValue="amount"
           pieChartColors={expenseDataColors}

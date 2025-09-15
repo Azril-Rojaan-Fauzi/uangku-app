@@ -1,6 +1,7 @@
 import { incomeDataColors } from "../constants/pieChartData";
 import useFetchTransaction from "../hooks/api/useFetchTransaction";
 import useFilter from "../hooks/finance/useFilter";
+import { groupByCategory } from "../utils/groupByCategory";
 import IncomeForm from "./components/income/IncomeForm";
 import PieChartGroup from "./components/PieChartGroup";
 import TransactionTable from "./components/TransactionTable";
@@ -8,6 +9,8 @@ import TransactionTable from "./components/TransactionTable";
 const IncomePage = () => {
   const { transactions } = useFetchTransaction("transactions");
   const { incomePieChartData } = useFilter();
+
+  const groupedIncomeData = groupByCategory(incomePieChartData);
   return (
     <div className="flex flex-col gap-y-4">
       <h1 className="title">Pemasukan</h1>
@@ -15,7 +18,7 @@ const IncomePage = () => {
         <IncomeForm />
         <PieChartGroup
           title="pemasukan"
-          pieChartData={incomePieChartData}
+          pieChartData={groupedIncomeData}
           pieChartCategories="category"
           pieChartValue="amount"
           pieChartColors={incomeDataColors}
