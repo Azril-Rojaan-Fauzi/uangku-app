@@ -3,7 +3,7 @@ import CardInfo from "./CardInfo";
 import useFilter from "../../../hooks/finance/useFilter";
 
 const CardDisplay = () => {
-  const { incomeAmount, expenseAmount, balance } = useFilter();
+  const { incomeAmountMonth, expenseAmountMonth, balance } = useFilter();
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {/* Card Pemasukan Start */}
@@ -11,7 +11,7 @@ const CardDisplay = () => {
       <CardInfo
         icon={<BanknoteArrowUp size={26} />}
         title="Pemasukan Bulan Ini"
-        value={incomeAmount}
+        value={incomeAmountMonth}
         percentage={25}
         trendUp={true}
         iconColor="text-green-400"
@@ -22,7 +22,7 @@ const CardDisplay = () => {
       <CardInfo
         icon={<BanknoteArrowDown size={26} />}
         title="Pengeluaran Bulan Ini"
-        value={expenseAmount}
+        value={expenseAmountMonth}
         percentage={10}
         trendUp={false}
         iconColor="text-red-600"
