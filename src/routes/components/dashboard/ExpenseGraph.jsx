@@ -6,9 +6,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-// import { overviewData } from "../../../constants/overviewData";
 import { useTheme } from "../../../hooks/theme/useTheme";
 import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
+import formatNumber from "../../../utils/formatNumber";
 
 const ExpenseGraph = () => {
   const { monthlyArray } = useMonthlyTransactions();
@@ -33,7 +33,7 @@ const ExpenseGraph = () => {
             </defs>
             <Tooltip
               cursor={false}
-              formatter={(value) => `Rp ${value.toLocaleString("id-ID")}`}
+              formatter={(value) => `Rp ${formatNumber(value)}`}
             />
             <XAxis
               dataKey="month"

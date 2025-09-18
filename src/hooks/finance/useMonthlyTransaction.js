@@ -6,30 +6,42 @@ export default function useMonthlyTransactions() {
   const { transactions = [] } = useFetchTransaction("transactions");
 
   const monthlyArray = useMemo(() => {
-    // buat map awal per bulan biar urut
-    const initial = monthNames.map((m) => ({
-      month: m,
-      totalIncome: 0,
-      totalExpense: 0,
-    }));
+    const yearlyMap = {};
 
     transactions.forEach((item) => {
       const d = new Date(item.date);
-      const monthIndex = d.getMonth(); // 0 - 11
+      const year = d.getFullYear();
+      const monthIndex = d.getMonth();
+
+      if (!yearlyMap[year]) {
+        yearlyMap[year] = monthNames.map((m) => ({
+          month: m,
+          year,
+          totalIncome: 0,
+          totalExpense: 0,
+        }));
+      }
+
       if (item.type === "income") {
-        initial[monthIndex].totalIncome += item.amount;
+        yearlyMap[year][monthIndex].totalIncome += item.amount;
       } else if (item.type === "expense") {
-        initial[monthIndex].totalExpense += item.amount;
+        yearlyMap[year][monthIndex].totalExpense += item.amount;
       }
     });
 
-    // kalau butuh total expense doang (misalnya buat ExpenseGraph)
-    const expenseArray = initial.map((m) => ({
-      month: m.month,
-      total: m.totalExpense,
+    const full = Object.entries(yearlyMap).map(([year, months]) => ({
+      year: Number(year),
+      months,
     }));
+    const expenseArray = Object.values(yearlyMap).flatMap((months) =>
+      months.map((m) => ({
+        month: m.month,
+        year: m.year,
+        total: m.totalExpense,
+      })),
+    );
 
-    return { full: initial, expense: expenseArray };
+    return { full, expense: expenseArray };
   }, [transactions]);
 
   return { monthlyArray };

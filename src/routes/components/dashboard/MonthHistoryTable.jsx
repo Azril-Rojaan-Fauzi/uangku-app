@@ -22,21 +22,27 @@ const MonthHistoryTable = () => {
               </tr>
             </thead>
             <tbody className="table-body">
-              {monthlyArray.full.map((data, index) => (
-                <tr key={index} className="table-row">
-                  <td className="table-cell">{index + 1}</td>
-                  <td className="table-cell">{data.month}</td>
-                  <td className="table-cell">
-                    Rp. {formatNumber(data.totalIncome - data.totalExpense)}
-                  </td>
-                  <td className="table-cell">
-                    Rp. {formatNumber(data.totalIncome)}
-                  </td>
-                  <td className="table-cell">
-                    Rp. {formatNumber(data.totalExpense)}
-                  </td>
-                </tr>
-              ))}
+              {monthlyArray.full.map((yearBlock) =>
+                yearBlock.months
+                  .filter(
+                    (data) => data.totalIncome > 0 || data.totalExpense > 0,
+                  )
+                  .map((data, index) => (
+                    <tr key={index} className="table-row">
+                      <td className="table-cell">{index + 1}</td>
+                      <td className="table-cell">{`${data.month} - ${data.year}`}</td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalIncome - data.totalExpense)}
+                      </td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalIncome)}
+                      </td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalExpense)}
+                      </td>
+                    </tr>
+                  )),
+              )}
             </tbody>
           </table>
         </div>
