@@ -1,9 +1,41 @@
 import { Banknote, BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
 import CardInfo from "./CardInfo";
 import useFilter from "../../../hooks/finance/useFilter";
+// import useLastMonthSummary from "../../../hooks/api/useLastMonthSummary";
+import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
 
 const CardDisplay = () => {
   const { incomeAmountMonth, expenseAmountMonth, balance } = useFilter();
+  const { monthlyArray } = useMonthlyTransactions();
+  const { lastMonthData } = monthlyArray;
+
+  const incomeLastMonth = lastMonthData.totalIncome;
+  const expenseLastMonth = lastMonthData.totalExpense;
+
+  const incomePercentage =
+    incomeLastMonth > 0
+      ? ((incomeAmountMonth - incomeLastMonth) / incomeLastMonth) * 100
+      : null;
+
+  const expensePercentage =
+    expenseLastMonth > 0
+      ? ((expenseAmountMonth - expenseLastMonth) / expenseLastMonth) * 100
+      : null;
+
+  const trendIncome =
+    incomeAmountMonth > incomeLastMonth
+      ? "up"
+      : incomeAmountMonth < incomeLastMonth
+        ? "down"
+        : "equal";
+
+  const trendExpense =
+    expenseAmountMonth > expenseLastMonth
+      ? "up"
+      : expenseAmountMonth < expenseLastMonth
+        ? "down"
+        : "equal";
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {/* Card Pemasukan Start */}
@@ -12,8 +44,8 @@ const CardDisplay = () => {
         icon={<BanknoteArrowUp size={26} />}
         title="Pemasukan Bulan Ini"
         value={incomeAmountMonth}
-        percentage={25}
-        trendUp={true}
+        percentage={Math.round(Math.abs(incomePercentage))}
+        trendUp={trendIncome}
         iconColor="text-green-400"
       />
       {/* Card Pemasukan End */}
@@ -23,8 +55,8 @@ const CardDisplay = () => {
         icon={<BanknoteArrowDown size={26} />}
         title="Pengeluaran Bulan Ini"
         value={expenseAmountMonth}
-        percentage={10}
-        trendUp={false}
+        percentage={Math.round(Math.abs(expensePercentage))}
+        trendUp={trendExpense}
         iconColor="text-red-600"
       />
       {/* Card Pengeluaran End */}

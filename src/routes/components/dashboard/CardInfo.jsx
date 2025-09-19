@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import formatNumber from "../../../utils/formatNumber";
 import { cn } from "../../../utils/cn";
 
@@ -31,15 +31,24 @@ const CardInfo = ({
         {showTrend && (
           <span
             className={cn(
-              "font-base flex w-fit items-center gap-x-2 rounded-full border px-2 py-1",
-              trendUp
-                ? "border-green-400 text-green-400"
-                : "border-red-400 text-red-400",
+              "font-base flex w-fit items-center gap-x-2 rounded-full border px-3 py-1 text-sm",
+              percentage === 0
+                ? "border-blue-500 text-blue-500"
+                : trendUp === "up"
+                  ? "border-green-400 text-green-400"
+                  : trendUp === "down"
+                    ? "border-red-400 text-red-400"
+                    : "border-blue-500 text-blue-500",
             )}
           >
-            {/* trendUp menentukan apakah persentasi naik atau turun diambil dari evaluasi bulan kemarin dan bulan ini */}
-            {trendUp ? <TrendingUp size={18} /> : <TrendingDown size={18} />}
-            {percentage}% dari bulan lalu
+            {trendUp === "up" && percentage !== 0 && <TrendingUp size={18} />}
+            {trendUp === "down" && <TrendingDown size={18} />}
+
+            {trendUp === "equal"
+              ? "Sama dengan bulan lalu"
+              : percentage !== 0
+                ? `${percentage}% dari bulan lalu`
+                : "Tidak ada data bulan lalu"}
           </span>
         )}
       </div>

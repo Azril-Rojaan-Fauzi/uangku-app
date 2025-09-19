@@ -41,7 +41,25 @@ export default function useMonthlyTransactions() {
       })),
     );
 
-    return { full, expense: expenseArray };
+    // 🔹 Cari bulan lalu
+    const now = new Date();
+    let lastMonthIndex = now.getMonth() - 1;
+    let lastMonthYear = now.getFullYear();
+
+    if (lastMonthIndex < 0) {
+      // berarti Januari → ambil Desember tahun lalu
+      lastMonthIndex = 11;
+      lastMonthYear -= 1;
+    }
+
+    const lastMonthData = yearlyMap[lastMonthYear]?.[lastMonthIndex] || {
+      month: monthNames[lastMonthIndex],
+      year: lastMonthYear,
+      totalIncome: 0,
+      totalExpense: 0,
+    };
+
+    return { full, expense: expenseArray, lastMonthData: lastMonthData };
   }, [transactions]);
 
   return { monthlyArray };
