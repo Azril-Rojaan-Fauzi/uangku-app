@@ -8,7 +8,7 @@ export const expenseCategories = [
   "Lainnya",
 ];
 export const expenseDataColors = {
-  Makan: "#4D96FF",
+  Makan: "#FF6B6B",
   Transportasi: "#4D96FF",
   Kos: "#6BCB77",
   Hiburan: "#A66DD4",

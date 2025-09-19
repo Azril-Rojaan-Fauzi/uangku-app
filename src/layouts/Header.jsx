@@ -1,9 +1,12 @@
 import { ChevronsLeft, Moon, Sun } from "lucide-react";
 import { useTheme } from "../hooks/theme/useTheme";
 import BalanceDisplay from "./BalanceDisplay";
+import useGetUserInfo from "../hooks/api/useGetUserInfo";
 
 const Header = ({ collapsed, setCollapsed }) => {
+  const { profilePhoto } = useGetUserInfo();
   const { theme, setTheme } = useTheme();
+  // setiap mencet tombol yang ada di header akan terjadi render
   return (
     <header className="relative z-10 flex h-[60px] items-center justify-between bg-white px-4 shadow-md transition-colors dark:bg-slate-900">
       <div className="flex items-center gap-x-3">
@@ -23,6 +26,15 @@ const Header = ({ collapsed, setCollapsed }) => {
           <Sun size={20} className="dark:hidden" />
           <Moon size={20} className="hidden dark:block" />
         </button>
+        {profilePhoto && (
+          <div className="size-9 overflow-hidden rounded-full">
+            <img
+              src={profilePhoto}
+              alt="tes"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        )}
       </div>
     </header>
   );
