@@ -1,27 +1,35 @@
 import LoginButton from "../authentication/LoginButton";
+import pcAvatar from "../assets/img/pc-avatar.jpeg";
+import useCollapsed from "../hooks/useCollapsed";
 
 export default function LandingPage() {
-  return (
-    <section className="flex min-h-screen w-full flex-col">
-      <header className="flex h-16 items-center justify-between border-b-2 border-blue-500/20 bg-white px-4 md:h-20 md:px-8">
-        <h1 className="text-2xl font-bold text-blue-500 text-shadow-md md:text-3xl">
-          UangKu
-        </h1>
-      </header>
+  const { collapsed } = useCollapsed();
 
-      <main className="flex flex-1 flex-col items-center justify-center bg-blue-200/20 px-4">
-        <div className="w-full max-w-xl rounded-lg border-0 border-blue-200 bg-slate-50 px-8 py-5 shadow-sm md:border">
-          <div className="flex flex-col p-2">
-            <h2 className="title text-center font-bold text-slate-900 dark:text-slate-900">
+  return (
+    <section className="flex h-screen w-full flex-col">
+      <div className="flex h-full w-full">
+        <div className="my-show m-5 mb-0 grid w-full grid-cols-1 opacity-0 blur-lg md:m-10 lg:grid-cols-2">
+          <div className="col-span-1 flex flex-col items-center justify-center gap-5 p-3 pt-0 lg:items-start">
+            <h1 className="text-4xl font-bold tracking-wide md:text-6xl xl:text-9xl">
               UangKu
-            </h2>
-            <p className="mt-2 text-center text-2xl font-light text-slate-500">
-              Kelola keuanganmu di UangKu 😋
+            </h1>
+            <p className="text-center text-2xl md:text-start lg:w-3/4 lg:text-3xl xl:text-5xl">
+              Kelola keuanganmu di <span className="font-semibold">UangKu</span>
             </p>
             <LoginButton />
           </div>
+          {!collapsed && (
+            <div className="col-span-1 flex items-end justify-center overflow-hidden md:items-center md:p-3">
+              <img
+                src={pcAvatar}
+                alt="Tampilan aplikasi UangKu versi desktop"
+                className="object-fit h-fit w-1/3 lg:h-2/3 lg:w-auto"
+                loading="lazy"
+              />
+            </div>
+          )}
         </div>
-      </main>
+      </div>
     </section>
   );
 }

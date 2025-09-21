@@ -2,25 +2,10 @@ import { Outlet } from "react-router-dom";
 import Header from "../layouts/Header";
 import Sidebar from "../layouts/Sidebar";
 import { cn } from "../utils/cn";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import { useEffect, useRef, useState } from "react";
-import useClickOutside from "../hooks/theme/useClickOutside";
+import useCollapsed from "../hooks/useCollapsed";
 
 const Layout = () => {
-  const isDesktopDevice = useMediaQuery("(min-width: 768px)");
-  const [collapsed, setCollapsed] = useState(!isDesktopDevice);
-
-  const sidebarRef = useRef(null);
-
-  useEffect(() => {
-    setCollapsed(!isDesktopDevice);
-  }, [isDesktopDevice]);
-
-  useClickOutside([sidebarRef], () => {
-    if (!isDesktopDevice && !collapsed) {
-      setCollapsed(true);
-    }
-  });
+  const { collapsed, setCollapsed, sidebarRef } = useCollapsed();
 
   return (
     <div className="min-h-screen bg-slate-100 transition-colors dark:bg-slate-950">

@@ -10,6 +10,17 @@
   }
 }
 
+.my-show {
+  animation: showAnimation 0.5s 0.5s linear 1 forwards;
+}
+
+@keyframes showAnimation {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
 @layer components {
   /* Bagian Sidebar Start */
   .sidebar-group {
@@ -31,13 +42,6 @@
     @apply text-3xl font-semibold transition-colors text-shadow-slate-900 dark:text-slate-50;
   }
 
-  .btn-ghost {
-    @apply flex h-10 flex-shrink-0 items-center justify-center gap-x-2 rounded-lg p-2 text-slate-400 transition-colors hover:bg-blue-50 hover:text-slate-500 dark:hover:bg-blue-950 dark:hover:text-slate-300;
-  }
-
-  .saldo {
-    @apply flex h-10 flex-shrink-0 items-center gap-x-2 rounded-lg border border-slate-300 px-4 text-base transition-colors text-shadow-slate-900 md:flex md:w-fit lg:w-fit dark:border-slate-700 dark:text-slate-50;
-  }
   /* Bagian Sidebar End */
 
   /* Bagian Card dashboard Start*/

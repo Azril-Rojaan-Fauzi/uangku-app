@@ -1,7 +1,7 @@
 import { PencilLine, Trash } from "lucide-react";
 import formatNumber from "../../utils/formatNumber";
 import useDeleteTransaction from "../../hooks/api/useDeleteTransaction";
-import { useState } from "react";
+import React, { useState } from "react";
 import UpdateTable from "./UpdateTable";
 
 export default function TransactionTable({ data, title, type }) {
@@ -29,8 +29,8 @@ export default function TransactionTable({ data, title, type }) {
             </thead>
             <tbody className="table-body">
               {filteredData.map((item, index) => (
-                <>
-                  <tr key={item.id} className="table-row">
+                <React.Fragment key={item.id}>
+                  <tr className="table-row">
                     <td className="table-cell">{index + 1}</td>
                     <td className="table-cell">{item.date}</td>
                     <td className="table-cell">{item.category}</td>
@@ -62,7 +62,7 @@ export default function TransactionTable({ data, title, type }) {
                       filteredData={filteredData}
                     />
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>

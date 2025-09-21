@@ -26,7 +26,7 @@ const LoginButton = () => {
   return (
     <div
       onClick={signInWithGoogle}
-      className="mt-6 flex w-full cursor-pointer items-center justify-center gap-3 rounded-full bg-slate-200 px-3 py-2 text-white hover:bg-slate-300"
+      className="mt-6 flex w-full cursor-pointer items-center justify-center gap-3 rounded-full bg-blue-400 px-3 py-2 text-white hover:bg-blue-300 md:w-2/3"
     >
       <img src={googleLogo} alt="" className="h-5 w-5" />
       <p className="text-sm text-slate-900">Login with Google</p>
