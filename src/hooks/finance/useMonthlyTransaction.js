@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import useFetchTransaction from "../api/useFetchTransaction";
 import { monthNames } from "../../constants/monthHistoryData";
 
-export default function useMonthlyTransactions() {
+export default function useMonthlyTransactions(selectedYear) {
   const { transactions = [] } = useFetchTransaction("transactions");
 
   const monthlyArray = useMemo(() => {
@@ -33,15 +33,14 @@ export default function useMonthlyTransactions() {
       year: Number(year),
       months,
     }));
-    const expenseArray = Object.values(yearlyMap).flatMap((months) =>
-      months.map((m) => ({
-        month: m.month,
-        year: m.year,
-        total: m.totalExpense,
-      })),
-    );
 
-    // 🔹 Cari bulan lalu
+    const expenseArray = (yearlyMap[selectedYear] || []).map((m) => ({
+      month: m.month,
+      year: m.year,
+      total: m.totalExpense,
+    }));
+
+    // Cari bulan lalu
     const now = new Date();
     let lastMonthIndex = now.getMonth() - 1;
     let lastMonthYear = now.getFullYear();
@@ -59,8 +58,8 @@ export default function useMonthlyTransactions() {
       totalExpense: 0,
     };
 
-    return { full, expense: expenseArray, lastMonthData: lastMonthData };
-  }, [transactions]);
+    return { full, expense: expenseArray, lastMonthData };
+  }, [transactions, selectedYear]);
 
   return { monthlyArray };
 }

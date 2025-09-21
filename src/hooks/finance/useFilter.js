@@ -14,7 +14,7 @@ export default function useFilter() {
   const incomeFilter = transactions.filter((item) => item.type === "income");
   const expenseFilter = transactions.filter((item) => item.type === "expense");
 
-  // amount
+  // filter berdasarkan bulan dan tahun
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
