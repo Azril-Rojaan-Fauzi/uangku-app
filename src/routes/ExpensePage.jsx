@@ -10,7 +10,6 @@ import { groupByCategory } from "../utils/groupByCategory";
 const ExpensePage = () => {
   const { transactions } = useFetchTransaction("transactions");
   const { expensePieChartData } = useFilter();
-  console.log(expensePieChartData);
 
   const groupedExpenseData = groupByCategory(expensePieChartData);
 
