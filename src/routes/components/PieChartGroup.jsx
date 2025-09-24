@@ -17,7 +17,7 @@ const PieChartGroup = ({
   return (
     <div className="card order-1 col-span-1 md:order-1 md:col-span-2 lg:order-2 lg:col-span-3">
       <div className="card-header">
-        <p className="card-title">Ringkasan {title}</p>
+        <p className="card-title">Ringkasan {title} bulan ini</p>
       </div>
 
       <div className="card-body p-0">

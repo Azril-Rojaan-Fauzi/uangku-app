@@ -10,11 +10,12 @@ import { useTheme } from "../../../hooks/theme/useTheme";
 import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
 import formatNumber from "../../../utils/formatNumber";
 import { useState } from "react";
+import { years } from "../../../constants/monthHistoryData";
 
 const ExpenseGraph = () => {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear);
-  const { monthlyArray } = useMonthlyTransactions(Number(selectedYear));
+  const { monthlyArray } = useMonthlyTransactions(selectedYear);
 
   const { theme } = useTheme();
   return (
@@ -25,26 +26,13 @@ const ExpenseGraph = () => {
           <select
             className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
+            onChange={(e) => setSelectedYear(Number(e.target.value))}
           >
-            <option value="2025" className="option-group">
-              2025
-            </option>
-            <option value="2026" className="option-group">
-              2026
-            </option>
-            <option value="2027" className="option-group">
-              2027
-            </option>
-            <option value="2028" className="option-group">
-              2028
-            </option>
-            <option value="2029" className="option-group">
-              2029
-            </option>
-            <option value="2029" className="option-group">
-              2030
-            </option>
+            {years.map((year) => (
+              <option value={year} className="option-group">
+                {year}
+              </option>
+            ))}
           </select>
         </label>
       </div>
