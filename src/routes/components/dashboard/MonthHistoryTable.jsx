@@ -16,41 +16,47 @@ const MonthHistoryTable = () => {
       <div className="card-body p-0">
         <div className="relative h-[500px] w-full flex-shrink-0 overflow-auto rounded-none [scrollbar-width:thin]">
           <div className="inline-flex min-h-full min-w-full flex-col justify-between align-top">
-            <table className="table">
-              <thead className="table-header">
-                <tr className="table-row">
-                  <th className="table-head w-12">No</th>
-                  <th className="table-head w-32">Bulan</th>
-                  <th className="table-head w-32">Saldo</th>
-                  <th className="table-head w-32">Pemasukan</th>
-                  <th className="table-head w-32">Pengeluaran</th>
-                </tr>
-              </thead>
-              <tbody className="table-body">
-                {currentPosts.map((yearBlock) =>
-                  yearBlock.months
-                    .filter(
-                      (data) => data.totalIncome > 0 || data.totalExpense > 0,
-                    )
-                    .map((data, index) => (
-                      <tr key={index} className="table-row">
-                        <td className="table-cell">{index + 1}</td>
-                        <td className="table-cell">{`${data.month} - ${data.year}`}</td>
-                        <td className="table-cell">
-                          Rp.{" "}
-                          {formatNumber(data.totalIncome - data.totalExpense)}
-                        </td>
-                        <td className="table-cell">
-                          Rp. {formatNumber(data.totalIncome)}
-                        </td>
-                        <td className="table-cell">
-                          Rp. {formatNumber(data.totalExpense)}
-                        </td>
-                      </tr>
-                    )),
-                )}
-              </tbody>
-            </table>
+            {currentPosts.length === 0 ? (
+              <p className="min-h[100px] m-auto text-2xl text-slate-900 dark:text-slate-50">
+                Belum ada data yang bisa ditampilkan
+              </p>
+            ) : (
+              <table className="table">
+                <thead className="table-header">
+                  <tr className="table-row">
+                    <th className="table-head w-12">No</th>
+                    <th className="table-head w-32">Bulan</th>
+                    <th className="table-head w-32">Saldo</th>
+                    <th className="table-head w-32">Pemasukan</th>
+                    <th className="table-head w-32">Pengeluaran</th>
+                  </tr>
+                </thead>
+                <tbody className="table-body">
+                  {currentPosts.map((yearBlock) =>
+                    yearBlock.months
+                      .filter(
+                        (data) => data.totalIncome > 0 || data.totalExpense > 0,
+                      )
+                      .map((data, index) => (
+                        <tr key={index} className="table-row">
+                          <td className="table-cell">{index + 1}</td>
+                          <td className="table-cell">{`${data.month} - ${data.year}`}</td>
+                          <td className="table-cell">
+                            Rp.{" "}
+                            {formatNumber(data.totalIncome - data.totalExpense)}
+                          </td>
+                          <td className="table-cell">
+                            Rp. {formatNumber(data.totalIncome)}
+                          </td>
+                          <td className="table-cell">
+                            Rp. {formatNumber(data.totalExpense)}
+                          </td>
+                        </tr>
+                      )),
+                  )}
+                </tbody>
+              </table>
+            )}
             <Pagination
               totalPosts={monthlyArray.full.length}
               postsPerPage={postsPerPage}

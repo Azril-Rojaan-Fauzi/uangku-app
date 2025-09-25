@@ -23,7 +23,7 @@ const PieChartGroup = ({
       <div className="card-body p-0">
         <ResponsiveContainer width="100%" height={300}>
           {pieChartData.reduce((acc, cur) => acc + cur.amount, 0) === 0 ? (
-            <p className="flex items-center justify-center text-base font-medium text-blue-500 transition-colors dark:text-blue-600">
+            <p className="flex items-center justify-center text-base font-medium text-slate-950 transition-colors dark:text-slate-50">
               Buat {title} terlebih dahulu
             </p>
           ) : (

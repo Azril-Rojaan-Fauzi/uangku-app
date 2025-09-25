@@ -1,14 +1,19 @@
-# UangKu
+# 💰 UangKu
 
-Aplikasi pencatatan pengeluaran sederhana berbasis web untuk membantu pengguna mengatur keuangan sehari-hari.
+**UangKu** adalah aplikasi pencatatan pengeluaran sederhana berbasis web yang membantu pengguna dalam mengatur keuangan sehari-hari.
 
 ---
 
 ## 🚀 Fitur
 
-- ✍️ Menambahkan data baru
-- 🗑️ Menghapus dan mengedit data
-- 📊 Visualisasi data dalam bentuk grafik
+- ✍️ Menambahkan data pemasukan dan pengeluaran
+- 🗑️ Menghapus dan mengedit transaksi
+- 📊 Visualisasi data keuangan dalam bentuk grafik
+- 🔍 Filter data berdasarkan bulan/tahun
+- 📑 Pagination pada tabel transaksi
+- 📈 Menampilkan saldo total secara otomatis
+- 🌙 Mode gelap (dark mode)
+- 🔐 Autentikasi pengguna dengan Firebase Auth
 
 ---
 
@@ -16,6 +21,6 @@ Aplikasi pencatatan pengeluaran sederhana berbasis web untuk membantu pengguna m
 
 - [React](https://react.dev/)
 - [Firebase](https://firebase.google.com/)
-- [TailwindCSS](https://tailwindcss.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ---
