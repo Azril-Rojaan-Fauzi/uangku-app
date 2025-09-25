@@ -16,8 +16,12 @@ const ExpenseGraph = () => {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const { monthlyArray } = useMonthlyTransactions(selectedYear);
-
   const { theme } = useTheme();
+  const isExpenseEmpty =
+    !monthlyArray.expense ||
+    monthlyArray.expense.length === 0 ||
+    monthlyArray.expense.every((item) => item.total === 0);
+
   return (
     <div className="card col-span-1 md:col-span-2 lg:col-span-7">
       <div className="card-header">
@@ -37,12 +41,12 @@ const ExpenseGraph = () => {
         </label>
       </div>
       <div className="card-body overflow-hidden p-0">
-        {!monthlyArray.expense || monthlyArray.expense.length === 0 ? (
-          <ResponsiveContainer width="100%" height={300}>
-            <p className="flex items-center justify-center text-2xl text-slate-900 dark:text-slate-50">
+        {isExpenseEmpty ? (
+          <div className="flex h-[300px] items-center justify-center">
+            <p className="text-2xl text-slate-900 dark:text-slate-50">
               Anda belum membuat pengeluaran tahun ini
             </p>
-          </ResponsiveContainer>
+          </div>
         ) : (
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart
