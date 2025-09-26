@@ -1,9 +1,23 @@
 import LoginButton from "../authentication/LoginButton";
 import pcAvatar from "../assets/img/pc-avatar.jpeg";
 import useCollapsed from "../hooks/useCollapsed";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function LandingPage() {
   const { collapsed } = useCollapsed();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const authInfo = localStorage.getItem("auth");
+
+    if (authInfo) {
+      const parsed = JSON.parse(authInfo);
+      if (parsed.isAuth) {
+        navigate("/dashboard");
+      }
+    }
+  }, [navigate]);
 
   return (
     <section className="flex h-screen w-full flex-col">
