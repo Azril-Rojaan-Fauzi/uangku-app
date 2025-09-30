@@ -44,7 +44,7 @@ export default function TransactionTable({ data, title, type }) {
         <div className="relative h-[500px] w-full flex-shrink-0 overflow-auto rounded-none [scrollbar-width:thin]">
           <div className="inline-flex min-h-full min-w-full flex-col justify-between align-top">
             {currentPosts.length === 0 ? (
-              <p className="min-h[100px] m-auto text-2xl text-slate-900 dark:text-slate-50">
+              <p className="min-h[100px] m-auto text-center text-2xl text-slate-900 dark:text-slate-50">
                 Anda belum membuat {title} bulan ini
               </p>
             ) : (

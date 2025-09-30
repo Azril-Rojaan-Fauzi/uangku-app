@@ -33,7 +33,7 @@ const ExpenseGraph = () => {
             onChange={(e) => setSelectedYear(Number(e.target.value))}
           >
             {years.map((year) => (
-              <option value={year} className="option-group">
+              <option value={year} key={year} className="option-group">
                 {year}
               </option>
             ))}
@@ -43,7 +43,7 @@ const ExpenseGraph = () => {
       <div className="card-body overflow-hidden p-0">
         {isExpenseEmpty ? (
           <div className="flex h-[300px] items-center justify-center">
-            <p className="text-2xl text-slate-900 dark:text-slate-50">
+            <p className="text-center text-2xl text-slate-900 dark:text-slate-50">
               Anda belum membuat pengeluaran tahun ini
             </p>
           </div>
