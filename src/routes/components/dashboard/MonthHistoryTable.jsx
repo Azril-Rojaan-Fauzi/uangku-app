@@ -5,8 +5,13 @@ import Pagination from "../Pagination";
 
 const MonthHistoryTable = () => {
   const { monthlyArray } = useMonthlyTransactions();
+  const filteredMonth = monthlyArray.full.flatMap((yearBlock) =>
+    yearBlock.months.filter(
+      (data) => data.totalIncome > 0 || data.totalExpense > 0,
+    ),
+  );
   const { currentPosts, postsPerPage, setCurrentPage, currentPage } =
-    usePagination(monthlyArray.full);
+    usePagination(filteredMonth);
 
   return (
     <div className="card">
@@ -32,33 +37,28 @@ const MonthHistoryTable = () => {
                   </tr>
                 </thead>
                 <tbody className="table-body">
-                  {currentPosts.map((yearBlock) =>
-                    yearBlock.months
-                      .filter(
-                        (data) => data.totalIncome > 0 || data.totalExpense > 0,
-                      )
-                      .map((data, index) => (
-                        <tr key={index} className="table-row">
-                          <td className="table-cell">{index + 1}</td>
-                          <td className="table-cell">{`${data.month} - ${data.year}`}</td>
-                          <td className="table-cell">
-                            Rp.{" "}
-                            {formatNumber(data.totalIncome - data.totalExpense)}
-                          </td>
-                          <td className="table-cell">
-                            Rp. {formatNumber(data.totalIncome)}
-                          </td>
-                          <td className="table-cell">
-                            Rp. {formatNumber(data.totalExpense)}
-                          </td>
-                        </tr>
-                      )),
-                  )}
+                  {currentPosts.map((data, index) => (
+                    <tr key={index} className="table-row">
+                      <td className="table-cell">
+                        {(currentPage - 1) * postsPerPage + index + 1}
+                      </td>
+                      <td className="table-cell">{`${data.month} - ${data.year}`}</td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalIncome - data.totalExpense)}
+                      </td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalIncome)}
+                      </td>
+                      <td className="table-cell">
+                        Rp. {formatNumber(data.totalExpense)}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             )}
             <Pagination
-              totalPosts={monthlyArray.full.length}
+              totalPosts={filteredMonth.length}
               postsPerPage={postsPerPage}
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}
