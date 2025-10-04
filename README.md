@@ -25,5 +25,20 @@
 
 ---
 
+## Setup
+
+- Buat .end.local pada root file
+- Isi dengan konfigurasi Firebase kamu
+  VITE_API_KEY=your_api_key  
+  VITE_AUTH_DOMAIN=your_project.firebaseapp.com
+  VITE_PROJECT_ID=your_project_id
+  VITE_STORAGE_BUCKET=your_project.appspot.com
+  VITE_MESSAGING_SENDER_ID=your_messaging_sender_id
+  VITE_APP_ID=your_app_id
+  VITE_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+
+---
+
 ## Link Website
+
 - https://uangku-app.vercel.app/
