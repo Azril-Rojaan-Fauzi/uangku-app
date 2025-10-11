@@ -10,17 +10,6 @@
   }
 }
 
-.my-show {
-  animation: showAnimation 0.5s 0.5s linear 1 forwards;
-}
-
-@keyframes showAnimation {
-  to {
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
 @layer components {
   /* Bagian Sidebar Start */
   .sidebar-group {

@@ -1,11 +1,8 @@
 import LoginButton from "../authentication/LoginButton";
-import pcAvatar from "../assets/img/pc-avatar.jpeg";
-import useCollapsed from "../hooks/useCollapsed";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function LandingPage() {
-  const { collapsed } = useCollapsed();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,27 +18,15 @@ export default function LandingPage() {
 
   return (
     <section className="flex h-screen w-full flex-col">
-      <div className="flex h-full w-full">
-        <div className="my-show m-5 mb-0 grid w-full grid-cols-1 opacity-0 blur-lg md:m-10 lg:grid-cols-2">
-          <div className="col-span-1 flex flex-col items-center justify-center gap-5 p-3 pt-0 lg:items-start">
-            <h1 className="text-4xl font-bold tracking-wide md:text-6xl xl:text-9xl">
-              UangKu
-            </h1>
-            <p className="text-center text-2xl md:text-start lg:w-3/4 lg:text-3xl xl:text-5xl">
-              Kelola keuanganmu di <span className="font-semibold">UangKu</span>
-            </p>
-            <LoginButton />
-          </div>
-          {!collapsed && (
-            <div className="col-span-1 flex items-end justify-center overflow-hidden md:items-center md:p-3">
-              <img
-                src={pcAvatar}
-                alt="Tampilan aplikasi UangKu versi desktop"
-                className="object-fit h-fit w-1/3 lg:h-2/3 lg:w-auto"
-                loading="lazy"
-              />
-            </div>
-          )}
+      <div className="flex h-full w-full items-center justify-center p-5">
+        <div className="flex flex-col items-center justify-center gap-7 rounded-2xl bg-blue-500/10 px-5 py-3 md:h-1/2 md:w-1/2">
+          <h1 className="text-4xl font-bold tracking-wide md:text-5xl">
+            UangKu
+          </h1>
+          <p className="text-center text-xl lg:text-2xl">
+            Kelola keuanganmu di <span className="font-semibold">UangKu</span>
+          </p>
+          <LoginButton />
         </div>
       </div>
     </section>
