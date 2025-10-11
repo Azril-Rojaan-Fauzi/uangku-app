@@ -29,7 +29,7 @@ export default function TransactionTable({ data, title, type }) {
       <div className="card-header">
         <p className="card-title">{title}</p>
         <select
-          className="input-card max-h-10 overflow-y-auto rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
+          className="input-card max-h-10 w-fit overflow-y-auto rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
           value={selectedMonth}
           onChange={(e) => setSelectedMonth(Number(e.target.value))}
         >

@@ -26,7 +26,7 @@ const ExpenseGraph = () => {
     <div className="card col-span-1 md:col-span-2 lg:col-span-7">
       <div className="card-header">
         <div className="card-title">Pengeluaran</div>
-        <label className="input-card">
+        <label className="input-card w-fit">
           <select
             className="rounded-sm border border-slate-300 px-3 py-1 dark:border-slate-50"
             value={selectedYear}

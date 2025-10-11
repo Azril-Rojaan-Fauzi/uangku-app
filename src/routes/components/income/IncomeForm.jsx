@@ -12,9 +12,10 @@ const IncomeForm = () => {
   } = useForm();
 
   const handleIncomeSubmit = (data) => {
+    const amountNumber = data.amount.replace(/\./g, "");
     addTransaction({
       note: data.note,
-      amount: Number(data.amount),
+      amount: Number(amountNumber),
       type: "income",
       category: data.category,
       date: data.date,
@@ -36,10 +37,21 @@ const IncomeForm = () => {
           <label className="input-card">
             Nominal (Rp)
             <input
-              type="number"
-              {...register("amount", { required: "Nominal wajib diisi" })}
+              type="text"
               className="input-group"
               placeholder="Masukkan Nominal"
+              autoComplete="off"
+              {...register("amount", {
+                required: "Nominal wajib diisi",
+                onChange: (e) => {
+                  const rawValue = e.target.value.replace(/\D/g, ""); // hanya angka
+                  const formatted = rawValue.replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ".",
+                  );
+                  e.target.value = formatted; // ubah tampilan input
+                },
+              })}
             />
             {errors.amount && (
               <span className="text-sm text-red-500">
