@@ -1,8 +1,7 @@
 import { Banknote, BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
 import CardInfo from "./CardInfo";
-import useFilter from "../../../hooks/finance/useFilter";
-// import useLastMonthSummary from "../../../hooks/api/useLastMonthSummary";
-import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
+import useFilter from "../hooks/finance/useFilter";
+import useMonthlyTransactions from "../hooks/finance/useMonthlyTransaction";
 
 const CardDisplay = () => {
   const { incomeAmountMonth, expenseAmountMonth, balance } = useFilter();

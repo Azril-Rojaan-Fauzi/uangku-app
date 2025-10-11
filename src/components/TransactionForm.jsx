@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import useAddTransaction from "../../../hooks/api/useAddTransaction";
+import useAddTransaction from "../hooks/api/useAddTransaction";
 
-const IncomeForm = () => {
+const TransactionForm = ({ title, transactionType, categories }) => {
   const { addTransaction } = useAddTransaction();
 
   const {
@@ -13,10 +13,11 @@ const IncomeForm = () => {
 
   const handleIncomeSubmit = (data) => {
     const amountNumber = data.amount.replace(/\./g, "");
+
     addTransaction({
       note: data.note,
       amount: Number(amountNumber),
-      type: "income",
+      type: data.transactionType,
       category: data.category,
       date: data.date,
     });
@@ -26,13 +27,19 @@ const IncomeForm = () => {
   return (
     <div className="card order-2 col-span-1 md:order-2 md:col-span-2 lg:order-1 lg:col-span-4">
       <div className="card-header">
-        <div className="card-title">Form Pemasukan</div>
+        <div className="card-title">Form {title}</div>
       </div>
       <div className="card-body overflow-hidden px-2 py-0">
         <form
           onSubmit={handleSubmit(handleIncomeSubmit)}
           className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4"
         >
+          {/* type */}
+          <input
+            type="hidden"
+            value={transactionType}
+            {...register("transactionType")}
+          />
           {/* amount */}
           <label className="input-card">
             Nominal (Rp)
@@ -70,15 +77,11 @@ const IncomeForm = () => {
               <option className="option-group" value="">
                 -- Pilih --
               </option>
-              <option className="option-group" value="Gaji">
-                Gaji
-              </option>
-              <option className="option-group" value="Uang Saku">
-                Uang Saku
-              </option>
-              <option className="option-group" value="Lainnya">
-                Lainnya
-              </option>
+              {categories.map((category) => (
+                <option className="option-group" value={category}>
+                  {category}
+                </option>
+              ))}
             </select>
             {errors.category && (
               <span className="text-sm text-red-500">
@@ -135,4 +138,4 @@ const IncomeForm = () => {
   );
 };
 
-export default IncomeForm;
+export default TransactionForm;

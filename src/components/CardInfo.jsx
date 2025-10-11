@@ -1,6 +1,6 @@
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
-import formatNumber from "../../../utils/formatNumber";
-import { cn } from "../../../utils/cn";
+import formatNumber from "../utils/formatNumber";
+import { cn } from "../utils/cn";
 
 const CardInfo = ({
   icon,

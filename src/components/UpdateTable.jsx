@@ -1,11 +1,8 @@
 import { Check, X } from "lucide-react";
 
-import useUpdateTransaction from "../../hooks/api/useUpdateTransaction";
+import useUpdateTransaction from "../hooks/api/useUpdateTransaction";
 import { useForm } from "react-hook-form";
-import {
-  expenseCategories,
-  incomeCategories,
-} from "../../constants/pieChartData";
+import { expenseCategories, incomeCategories } from "../constants/pieChartData";
 
 const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
   const { updateTransaction } = useUpdateTransaction();

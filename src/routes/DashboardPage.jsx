@@ -1,6 +1,6 @@
-import CardDisplay from "./components/dashboard/CardDisplay";
-import ExpenseGraph from "./components/dashboard/ExpenseGraph";
-import MonthHistoryTable from "./components/dashboard/MonthHistoryTable";
+import CardDisplay from "../components/CardDisplay";
+import ExpenseGraph from "../components/ExpenseGraph";
+import MonthHistoryTable from "../components/MonthHistoryTable";
 
 const DashboardPage = () => {
   return (

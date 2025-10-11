@@ -1,7 +1,7 @@
-import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
-import usePagination from "../../../hooks/usePagination";
-import formatNumber from "../../../utils/formatNumber";
-import Pagination from "../Pagination";
+import useMonthlyTransactions from "../hooks/finance/useMonthlyTransaction";
+import usePagination from "../hooks/usePagination";
+import formatNumber from "../utils/formatNumber";
+import Pagination from "./Pagination";
 
 const MonthHistoryTable = () => {
   const { monthlyArray } = useMonthlyTransactions();

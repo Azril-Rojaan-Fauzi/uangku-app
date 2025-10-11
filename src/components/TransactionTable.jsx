@@ -1,11 +1,11 @@
 import { PencilLine, Trash } from "lucide-react";
-import formatNumber from "../../utils/formatNumber";
-import useDeleteTransaction from "../../hooks/api/useDeleteTransaction";
+import formatNumber from "../utils/formatNumber";
+import useDeleteTransaction from "../hooks/api/useDeleteTransaction";
 import React, { useState } from "react";
 import UpdateTable from "./UpdateTable";
-import usePagination from "../../hooks/usePagination";
+import usePagination from "../hooks/usePagination";
 import Pagination from "./Pagination";
-import { monthNames } from "../../constants/monthHistoryData";
+import { monthNames } from "../constants/monthHistoryData";
 
 export default function TransactionTable({ data, title, type }) {
   const [editingId, setEditingId] = useState(null);

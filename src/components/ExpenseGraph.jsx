@@ -6,11 +6,11 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { useTheme } from "../../../hooks/theme/useTheme";
-import useMonthlyTransactions from "../../../hooks/finance/useMonthlyTransaction";
-import formatNumber from "../../../utils/formatNumber";
+import { useTheme } from "../hooks/theme/useTheme";
+import useMonthlyTransactions from "../hooks/finance/useMonthlyTransaction";
+import formatNumber from "../utils/formatNumber";
 import { useState } from "react";
-import { years } from "../../../constants/monthHistoryData";
+import { years } from "../constants/monthHistoryData";
 
 const ExpenseGraph = () => {
   const currentYear = new Date().getFullYear();
