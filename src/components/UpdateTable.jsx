@@ -22,10 +22,11 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
   });
 
   const onUpdate = async (data) => {
+    const amountNumber = data.amount.replace(/\./g, "");
     await updateTransaction(
       item.id,
       data.note,
-      data.amount,
+      amountNumber,
       data.category,
       data.date,
     );
@@ -58,8 +59,15 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
       <td className="table-cell">
         <input
           autoComplete="off"
-          type="number"
-          {...register("amount", { required: true, valueAsNumber: true })}
+          type="text"
+          {...register("amount", {
+            required: true,
+            onChange: (e) => {
+              const rawValue = e.target.value.replace(/\D/g, ""); // hanya angka yang boleh diinput
+              const formatted = rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+              e.target.value = formatted; // mengubah tampilan input
+            },
+          })}
           className="input-update"
         />
       </td>

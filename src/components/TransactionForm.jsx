@@ -51,12 +51,12 @@ const TransactionForm = ({ title, transactionType, categories }) => {
               {...register("amount", {
                 required: "Nominal wajib diisi",
                 onChange: (e) => {
-                  const rawValue = e.target.value.replace(/\D/g, ""); // hanya angka
+                  const rawValue = e.target.value.replace(/\D/g, ""); // hanya angka yang boleh diinput
                   const formatted = rawValue.replace(
                     /\B(?=(\d{3})+(?!\d))/g,
                     ".",
                   );
-                  e.target.value = formatted; // ubah tampilan input
+                  e.target.value = formatted; // mengubah tampilan input
                 },
               })}
             />
