@@ -16,7 +16,9 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
     defaultValues: {
       date: item.date,
       category: item.category,
-      amount: item.amount,
+      amount: item.amount
+        ? item.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        : "",
       note: item.note,
     },
   });
