@@ -35,8 +35,11 @@ export default function useFilter() {
 
   // Filter transaksi sesuai bulan berjalan
   const currentMonthTransactions = transactions.filter((t) => {
-    const d = new Date(t.date);
-    return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+    const [y, m, d] = t.date.split("-").map(Number);
+    const date = new Date(y, m - 1, d); // buat manual supaya tidak bergeser
+    return (
+      date.getMonth() === currentMonth && date.getFullYear() === currentYear
+    );
   });
 
   // Income PieChart Data

@@ -19,7 +19,7 @@ const TransactionForm = ({ title, transactionType, categories }) => {
       amount: Number(amountNumber),
       type: data.transactionType,
       category: data.category,
-      date: data.date,
+      date: data.date.toString(),
     });
     reset();
   };

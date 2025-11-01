@@ -30,7 +30,7 @@ const UpdateTable = ({ editingId, filteredData, setEditingId }) => {
       data.note,
       amountNumber,
       data.category,
-      data.date,
+      data.date.toString(),
     );
     setEditingId(null);
   };

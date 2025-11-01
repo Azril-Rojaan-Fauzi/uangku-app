@@ -9,13 +9,14 @@ export default function useMonthlyTransactions(selectedYear) {
     const yearlyMap = {};
 
     transactions.forEach((item) => {
-      const d = new Date(item.date);
-      const year = d.getFullYear();
-      const monthIndex = d.getMonth();
+      const [y, m, day] = item.date.split("-").map(Number);
+      const date = new Date(y, m - 1, day);
+      const year = date.getFullYear();
+      const monthIndex = date.getMonth();
 
       if (!yearlyMap[year]) {
-        yearlyMap[year] = monthNames.map((m) => ({
-          month: m,
+        yearlyMap[year] = monthNames.map((monthName) => ({
+          month: monthName,
           year,
           totalIncome: 0,
           totalExpense: 0,

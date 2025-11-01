@@ -6,6 +6,7 @@ import UpdateTable from "./UpdateTable";
 import usePagination from "../hooks/usePagination";
 import Pagination from "./Pagination";
 import { monthNames } from "../constants/monthHistoryData";
+import formatDateString from "../utils/formatDateString";
 
 export default function TransactionTable({ data, title, type }) {
   const [editingId, setEditingId] = useState(null);
@@ -14,11 +15,10 @@ export default function TransactionTable({ data, title, type }) {
   const currentYear = new Date().getFullYear();
   const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const filteredDataByType = data.filter((item) => item.type === type);
-  const filteredData = filteredDataByType.filter(
-    (item) =>
-      new Date(item.date).getMonth() + 1 === selectedMonth &&
-      new Date(item.date).getFullYear() === currentYear,
-  );
+  const filteredData = filteredDataByType.filter((item) => {
+    const [year, month] = item.date.split("-").map(Number);
+    return month === selectedMonth && year === currentYear;
+  });
 
   const { deleteTransaction } = useDeleteTransaction();
   const { currentPosts, postsPerPage, setCurrentPage, currentPage } =
@@ -67,11 +67,7 @@ export default function TransactionTable({ data, title, type }) {
                           {(currentPage - 1) * postsPerPage + index + 1}
                         </td>
                         <td className="table-cell">
-                          {new Date(item.date).toLocaleDateString("id-ID", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })}
+                          {formatDateString(item.date)}
                         </td>
                         <td className="table-cell">{item.category}</td>
                         <td className="table-cell">
